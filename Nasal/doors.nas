@@ -13,7 +13,6 @@ Doors.new = func {
 		   ramprearkneeled : aircraft.door.new("instrumentation/doors/ramprearkneeled",  8.0, 0),
            cargodoorrear : aircraft.door.new("instrumentation/doors/cargodoorrear", 8.0, 0),
 		   crewdoor : aircraft.door.new("instrumentation/doors/crewdoor", 8.0, 0),
-		   crewdoorkneeled : aircraft.door.new("instrumentation/doors/crewdoorkneeled", 8.0, 0),
          };
    return obj;
 };
@@ -43,10 +42,6 @@ Doors.cargodoorrearexport = func {
 
 Doors.crewdoorexport = func {
    me.crewdoor.toggle();
-}
-
-Doors.crewdoorkneeledexport = func {
-   me.crewdoorkneeled.toggle();
 }
 
 # ==============

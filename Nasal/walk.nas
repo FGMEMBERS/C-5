@@ -6,7 +6,7 @@
  
  var walk_about = func(wa_distance) {
  	var i = getprop("sim/current-view/view-number");
- 	if (i == view.indexof("Pilot View") or i == view.indexof("CoPilot View") or i == view.indexof("Model View") or i == view.indexof("View 8") or i == view.indexof("Loadmaster View") or i == view.indexof("Crewbunk View") or i == view.indexof("Passenger View")) {
+ 	if (i == view.indexof("Pilot View") or i == view.indexof("Model View") or i == view.indexof("View 8") or i == view.indexof("Loadmaster")) {
  		var wa_heading_rad = hViewNode.getValue() * 0.01745329252;
  		var new_x_position = xViewNode.getValue() - (math.cos(wa_heading_rad) * wa_distance);
  		var new_y_position = yViewNode.getValue() - (math.sin(wa_heading_rad) * wa_distance);

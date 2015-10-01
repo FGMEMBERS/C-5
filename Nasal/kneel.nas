@@ -1,12 +1,12 @@
 # =====
-# Kneel  
+# Kneel
 # =====
 
 Kneel = {};
 
 Kneel.new = func {
    obj = { parents : [Kneel],
-           kneelac : aircraft.door.new("sim/model/kneelac", 10.0, 0),
+           kneelac : aircraft.door.new("sim/model/kneelac", 10.0),
          };
    return obj;
 };
