@@ -1,0 +1,1014 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="http://jsbsim.sourceforge.net/JSBSim.xsl"?>
+<fdm_config name="C-5M" version="2.0" release="PRODUCTION"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="http://jsbsim.sourceforge.net/JSBSim.xsd">
+
+   <fileheader>
+      <author> Datcom+ Pro </author>
+      <filecreationdate> 2013-08-17  19:33 </filecreationdate>
+      <version> 3.1.3 </version>
+      <description> Datcom+ Pro generated model for C-5M </description>
+      <reference refID="None" author="n/a" title="n/a" date="n/a"/>
+   </fileheader>
+
+<!-- From original JSBSIM FDM
+  File:     C-5M-JSB.xml
+  Inputs:
+    name:          C-5_Galaxy
+    type:          four-engine transonic transport
+	manufacturer:  Lockheed
+	first flight:  30 June 1968
+    max weight:    840000 lb (381,000 kg)
+	empty weight:  C5A 380,000 lb (172,370 kg), C5M 400,000 lb
+	loaded weight: 769,000 lb (348,800 kg) 
+    wing span:     222.74709 ft (67.89 m)
+    length:        247.09211 ft (75.31 m)
+	height:		   65 ft (19.84 m)
+    wing area:     6200 sq-ft
+    gear type:     tricycle
+    retractable?:  yes
+    # engines:     4
+    engine type:   fan-jet
+    engine layout: wings
+    yaw damper?    yes
+  Outputs:
+    wing loading:  27.75 lb/sq-ft
+    CL-alpha:      4.4 per radian
+    CL-0:          0.2
+    CL-max:        1.2
+    CD-0:          0.017
+    K:             0.042
+  General Characteristics:
+    Crew: 		   8 typical (pilot, first pilot, 1st Officer, two 	flight engineers, three loadmasters) 4 minimum (pilot, copilot, two flight engineers)
+	Payload:       270,000 lb (122,470 kg) M Model: 285,000 lb (129,274 kg)
+	Engines A/B/C Models:	GE TF-39 43,000 lbs thrust
+	Engines M Model:		GE CF6-80C2L1F 50,580 lbs thrust
+	Fuel Capacity: 			51,450 gallons or 332,500 lb (150,819 kg)
+	Fuel Tanks:				12 integral tanks in wings
+	Normal Cruise Speed: 	Mach 0.77
+	Cargo Bay:				121 ft (37 m) long, 13.5 ft (4.1 m) high, and 19 ft (5.8 m) wide, or just over 31,000 cu ft (880 m3)
+	Cargo Bay Capacity:		36 463L Pallets
+	Tires 49 X 17 inches or 1.2446 X 0.4318 meters
+-->
+
+<!-- **********************************************************************
+        METRICS
+     *******************************************************************-->
+   <metrics>
+      <wingarea unit="FT2">     6200.0000  </wingarea>
+      <wingspan unit="FT">       222.7500  </wingspan>
+      <chord unit="FT">           35.7000  </chord>
+      <htailarea unit="FT2">    1081.5525  </htailarea>
+      <htailarm unit="FT">       137.0540  </htailarm>
+      <vtailarea unit="FT2">    1235.5601  </vtailarea>
+      <vtailarm unit="FT">       119.5130  </vtailarm>
+      <location name="AERORP" unit="FT">
+         <x>     107.8768  </x>
+         <y>        .0000  </y>
+         <z>      12.6400  </z>
+      </location>
+
+      <!-- These values are not needed in JSBSim but are used in FlightGear. -->
+      <location name="EYEPOINT" unit="FT">
+         <x>  19.34 </x>
+         <y>   2.32 </y>
+         <z>  12.90 </z>
+      </location>
+      <location name="VRP" unit="FT">
+         <x>       .0000 </x>
+         <y>       .0000 </y>
+         <z>       .0000 </z>
+      </location>
+   </metrics>
+
+<!-- **********************************************************************
+        MASS_BALANCE
+     *******************************************************************-->
+   <!-- ixx iyy izz From original JSBSIM FDM -->
+   <mass_balance>
+      <ixx unit="SLUG*FT2">  14808222.8455  </ixx>
+      <iyy unit="SLUG*FT2">  20745256.8547  </iyy>
+      <izz unit="SLUG*FT2">  34792106.1498  </izz>
+      <ixz unit="SLUG*FT2">  1394005.2500  </ixz>
+      <emptywt unit="LBS">    332122.0000  </emptywt>
+      <location name="CG" unit="FT">
+            <x>  95.00  </x>
+            <y>   0.00  </y>
+            <z>   0.00  </z>
+      </location>
+	  
+	  <!-- From original JSBSIM FDM -->
+		<pointmass name="Pilot"> 
+			<weight unit="LBS"> 180 </weight> 
+			<location name="POINTMASS" unit="IN"> 
+				<x> 232.12 </x>
+				<y> -27.85 </y>
+				<z>  154.75 </z>
+			</location> 
+		</pointmass>
+		<pointmass name="Copilot"> 
+			<weight unit="LBS"> 180 </weight> 
+			<location name="POINTMASS" unit="IN"> 
+				<x> 232.12 </x>
+				<y> 27.85 </y>
+				<z>  154.75 </z> 
+			</location> 
+		</pointmass>
+
+		<pointmass name="payload"> 
+			<weight unit="LBS"> 0 </weight> 
+			<location name="POINTMASS" unit="IN"> 
+				<x> 20.784 </x> 
+				<y> 0 </y> 
+				<z> -2.36235 </z> 
+			</location> 
+		</pointmass>
+		
+<!-- Engines -->
+		<pointmass name="Eng1"> 
+			<weight unit="LBS"> 10424 </weight> 
+			<location name="POINTMASS" unit="IN"> 
+				<x> 1293.71 </x>
+				<y> -804.70 </y>
+				<z> -21.66 </z> 
+			</location> 
+		</pointmass>
+		<pointmass name="Eng2"> 
+			<weight unit="LBS"> 10424 </weight> 
+			<location name="POINTMASS" unit="IN"> 
+				<x> 1148.24 </x>
+				<y> -213.77 </y>
+				<z> 6.19 </z> 
+			</location> 
+		</pointmass>
+		<pointmass name="Eng3"> 
+			<weight unit="LBS"> 10424 </weight> 
+			<location name="POINTMASS" unit="IN"> 
+				<x> 1148.24 </x>
+				<y> 213.77 </y>
+				<z> 6.19 </z> 
+			</location> 
+		</pointmass>
+		<pointmass name="Eng4"> 
+			<weight unit="LBS"> 10424 </weight> 
+			<location name="POINTMASS" unit="IN"> 
+				<x> 1293.71 </x>
+				<y> -804.70 </y>
+				<z> -21.66 </z> 
+			</location> 
+		</pointmass>
+
+<!-- Landing Gear -->		
+		<pointmass name="Bogie1"> 
+			<weight unit="LBS"> 4706 </weight> 
+			<location name="POINTMASS" unit="IN"> 
+				<x> 504.48 </x>
+				<y>   0.00 </y>
+				<z>-124.00 </z> 
+			</location> 
+		</pointmass>
+		<pointmass name="Bogie2"> 
+			<weight unit="LBS"> 9689 </weight> 
+			<location name="POINTMASS" unit="IN"> 
+				<x> 1278.23 </x>
+				<y> -147.01 </y>
+				<z> -124.00 </z> 
+			</location> 
+		</pointmass>
+		<pointmass name="Bogie3"> 
+			<weight unit="LBS"> 9689 </weight> 
+			<location name="POINTMASS" unit="IN"> 
+				<x> 1505.71 </x>
+				<y> -147.01 </y>
+				<z> -124.00 </z> 
+			</location> 
+		</pointmass>
+		<pointmass name="Bogie4"> 
+			<weight unit="LBS"> 9689 </weight> 
+			<location name="POINTMASS" unit="IN"> 
+				<x> 1278.23 </x>
+				<y> 147.01 </y>
+				<z> -124.00 </z> 
+			</location> 
+		</pointmass>
+		<pointmass name="Bogie5"> 
+			<weight unit="LBS"> 9689 </weight> 
+			<location name="POINTMASS" unit="IN"> 
+				<x> 1505.71 </x>
+				<y> 147.01 </y>
+				<z> -124.00 </z> 
+			</location> 
+		</pointmass>
+
+<!-- Fuselage Points -->		
+		<pointmass name="Nose"> 
+			<weight unit="LBS"> 6642 </weight> 
+			<location name="POINTMASS" unit="IN"> 
+				<x> 159.39 </x>
+				<y>   0.00 </y>
+				<z>  23.21 </z> 
+			</location> 
+		</pointmass>
+		<pointmass name="Aileron1"> 
+			<weight unit="LBS"> 1051 </weight> 
+			<location name="POINTMASS" unit="FT"> 
+				<x>   142.50 </x>
+				<y>  -100.72 </y>
+				<z>     5.80 </z> 
+			</location> 
+		</pointmass>
+		<pointmass name="Aileron2"> 
+			<weight unit="LBS"> 1051 </weight> 
+			<location name="POINTMASS" unit="FT"> 
+				<x>   142.50 </x>
+				<y>   100.72 </y>
+				<z>     5.80 </z> 
+			</location> 
+		</pointmass>
+		<pointmass name="FwdRamp"> 
+			<weight unit="LBS"> 5230 </weight> 
+			<location name="POINTMASS" unit="FT"> 
+				<x>    24.12 </x>
+				<y>     0.00 </y>
+				<z>    -8.25 </z> 
+			</location> 
+		</pointmass>
+		<pointmass name="AftRamp"> 
+			<weight unit="LBS"> 6346 </weight> 
+			<location name="POINTMASS" unit="FT"> 
+				<x>   172.16 </x>
+				<y>     0.00 </y>
+				<z>     6.19 </z> 
+			</location> 
+		</pointmass>
+		
+   </mass_balance>
+
+
+<!-- **********************************************************************
+        UNDERCARRIAGE
+     *******************************************************************-->
+   <!-- From original JSBSIM FDM -->
+   <ground_reactions>
+
+		<contact type="BOGEY" name="NOSEGEAR">
+			<location unit="IN">
+				<x> 504.48 </x>
+				<y>   0.00 </y>
+				<z> -224.39 </z>
+			</location>
+			<static_friction>  0.50 </static_friction>
+			<dynamic_friction> 0.50 </dynamic_friction>
+			<rolling_friction> 0.02 </rolling_friction>
+			<spring_coeff unit="LBS/FT"> 181440 </spring_coeff>
+            <damping_coeff unit="LBS/FT/SEC"> 54432 </damping_coeff>
+			<max_steer unit="DEG"> 60.00 </max_steer>
+			<brake_group>NONE</brake_group>
+			<retractable>1</retractable>
+		</contact>
+		<contact type="BOGEY" name="Main1_Left Front">
+			<location unit="IN">
+				<x> 1278.23 </x>
+				<y> -147.01 </y>
+				<z> -224.39 </z>
+			</location>
+			<static_friction>  0.50 </static_friction>
+			<dynamic_friction> 0.50 </dynamic_friction>
+			<rolling_friction> 0.02 </rolling_friction>
+			<spring_coeff unit="LBS/FT"> 181440 </spring_coeff>
+            <damping_coeff unit="LBS/FT/SEC"> 36288 </damping_coeff>
+			<max_steer unit="DEG">0</max_steer>
+			<brake_group>LEFT</brake_group>
+			<retractable>1</retractable>
+		</contact>
+		<contact type="BOGEY" name="Main2_Left Rear">
+			<location unit="IN">
+				<x> 1505.71 </x>
+				<y> -147.01 </y>
+				<z> -224.39 </z>
+			</location>
+			<static_friction>  0.50 </static_friction>
+			<dynamic_friction> 0.50 </dynamic_friction>
+			<rolling_friction> 0.02 </rolling_friction>
+			<spring_coeff unit="LBS/FT"> 181440 </spring_coeff>
+            <damping_coeff unit="LBS/FT/SEC"> 36288 </damping_coeff>
+			<max_steer unit="DEG">0</max_steer>
+			<brake_group>LEFT</brake_group>
+			<retractable>1</retractable>
+		</contact>
+		<contact type="BOGEY" name="Main3_Right Front">
+			<location unit="IN">
+				<x> 1278.23 </x>
+				<y> 147.01 </y>
+				<z> -224.39 </z>
+			</location>
+			<static_friction>  0.50 </static_friction>
+			<dynamic_friction> 0.50 </dynamic_friction>
+			<rolling_friction> 0.02 </rolling_friction>
+			<spring_coeff unit="LBS/FT"> 181440 </spring_coeff>
+            <damping_coeff unit="LBS/FT/SEC"> 36288 </damping_coeff>
+			<max_steer unit="DEG">0</max_steer>
+			<brake_group>RIGHT</brake_group>
+			<retractable>1</retractable>
+		</contact>
+		<contact type="BOGEY" name="Main4_Right Rear">
+			<location unit="IN">
+				<x> 1505.71 </x>
+				<y> 147.01 </y>
+				<z> -224.39 </z>
+			</location>
+			<static_friction>  0.50 </static_friction>
+			<dynamic_friction> 0.50 </dynamic_friction>
+			<rolling_friction> 0.02 </rolling_friction>
+			<spring_coeff unit="LBS/FT"> 181440 </spring_coeff>
+            <damping_coeff unit="LBS/FT/SEC"> 36288 </damping_coeff>
+			<max_steer unit="DEG">0</max_steer>
+			<brake_group>RIGHT</brake_group>
+			<retractable>1</retractable>
+		</contact>
+		
+		<contact type="STRUCTURE" name="NOSE_GEAR">
+			<location unit="IN">
+				<x> 504.48 </x>
+				<y>   0.00 </y>
+				<z> -218.39 </z>
+			</location>
+			<static_friction>  0.80 </static_friction>
+			<dynamic_friction> 0.50 </dynamic_friction>
+			<spring_coeff unit="LBS/FT">      500000.0 </spring_coeff>
+			<damping_coeff unit="LBS/FT/SEC"> 500000.0 </damping_coeff>
+		</contact>
+		<contact type="STRUCTURE" name="Main_1">
+			<location unit="IN">
+				<x> 1278.23 </x>
+				<y> -147.01 </y>
+				<z> -218.39 </z>
+			</location>
+			<static_friction>  0.80 </static_friction>
+			<dynamic_friction> 0.50 </dynamic_friction>
+			<spring_coeff unit="LBS/FT">      500000.0 </spring_coeff>
+			<damping_coeff unit="LBS/FT/SEC"> 500000.0 </damping_coeff>
+		</contact>
+		<contact type="STRUCTURE" name="Main_2">
+			<location unit="IN">
+				<x> 1505.71 </x>
+				<y> -147.01 </y>
+				<z> -218.39 </z>
+			</location>
+			<static_friction>  0.80 </static_friction>
+			<dynamic_friction> 0.50 </dynamic_friction>
+			<spring_coeff unit="LBS/FT">      500000.0 </spring_coeff>
+			<damping_coeff unit="LBS/FT/SEC"> 500000.0 </damping_coeff>
+		</contact>
+		<contact type="STRUCTURE" name="Main_3">
+			<location unit="IN">
+				<x> 1278.23 </x>
+				<y> 147.01 </y>
+				<z> -218.39 </z>
+			</location>
+			<static_friction>  0.80 </static_friction>
+			<dynamic_friction> 0.50 </dynamic_friction>
+			<spring_coeff unit="LBS/FT">      500000.0 </spring_coeff>
+			<damping_coeff unit="LBS/FT/SEC"> 500000.0 </damping_coeff>
+		</contact>
+		<contact type="STRUCTURE" name="Main_4">
+			<location unit="IN">
+				<x> 1505.71 </x>
+				<y> 147.01 </y>
+				<z> -218.39 </z>
+			</location>
+			<static_friction>  0.80 </static_friction>
+			<dynamic_friction> 0.50 </dynamic_friction>
+			<spring_coeff unit="LBS/FT">      500000.0 </spring_coeff>
+			<damping_coeff unit="LBS/FT/SEC"> 500000.0 </damping_coeff>
+		</contact> 
+		
+		<contact type="STRUCTURE" name="LEFT_WING">
+			<location unit="IN">
+				<x> 1584.63 </x>
+				<y> -1445.36 </y>
+				<z> 60.24 </z>
+			</location>
+			<static_friction>  0.80 </static_friction>
+			<dynamic_friction> 0.50 </dynamic_friction>
+			<spring_coeff unit="LBS/FT">      500000.0 </spring_coeff>
+			<damping_coeff unit="LBS/FT/SEC"> 500000.0 </damping_coeff>
+		</contact>
+		<contact type="STRUCTURE" name="RIGHT_WING">
+			<location unit="IN">
+				<x> 1584.63 </x>
+				<y> -1445.36 </y>
+				<z> 60.24 </z>
+			</location>
+			<static_friction>  0.80 </static_friction>
+			<dynamic_friction> 0.50 </dynamic_friction>
+			<spring_coeff unit="LBS/FT">      500000.0 </spring_coeff>
+			<damping_coeff unit="LBS/FT/SEC"> 500000.0 </damping_coeff>
+		</contact>
+
+		<contact type="STRUCTURE" name="NG_POD">
+			<location unit="IN">
+				<x> 510.67 </x>
+				<y> 0 </y>
+				<z> 151.65 </z>
+			</location>
+			<static_friction>  0.80 </static_friction>
+			<dynamic_friction> 0.50 </dynamic_friction>
+			<spring_coeff unit="LBS/FT">      500000.0 </spring_coeff>
+			<damping_coeff unit="LBS/FT/SEC"> 500000.0 </damping_coeff>
+		</contact>
+		<contact type="STRUCTURE" name="Nosetip">
+			<location unit="IN">
+				<x> 0 </x>
+				<y> 0 </y>
+				<z> 0 </z>
+			</location>
+			<static_friction>  0.80 </static_friction>
+			<dynamic_friction> 0.50 </dynamic_friction>
+			<spring_coeff unit="LBS/FT">      500000.0 </spring_coeff>
+			<damping_coeff unit="LBS/FT/SEC"> 500000.0 </damping_coeff>
+		</contact>
+		<contact type="STRUCTURE" name="MLG_PODLT">
+			<location unit="IN">
+				<x> 1391.97 </x>
+				<y> -147.01 </y>
+				<z> -148.56 </z>
+			</location>
+			<static_friction>  0.80 </static_friction>
+			<dynamic_friction> 0.50 </dynamic_friction>
+			<spring_coeff unit="LBS/FT">      500000.0 </spring_coeff>
+			<damping_coeff unit="LBS/FT/SEC"> 500000.0 </damping_coeff>
+		</contact>
+		<contact type="STRUCTURE" name="MLG_PODRT">
+			<location unit="IN">
+				<x> 1391.97 </x>
+				<y> 147.01 </y>
+				<z> -148.56 </z>
+			</location>
+			<static_friction>  0.80 </static_friction>
+			<dynamic_friction> 0.50 </dynamic_friction>
+			<spring_coeff unit="LBS/FT">      500000.0 </spring_coeff>
+			<damping_coeff unit="LBS/FT/SEC"> 500000.0 </damping_coeff>
+		</contact>
+
+		<contact type="STRUCTURE" name="Rear_Fuselage">
+			<location unit="IN">
+				<x> 2429.57 </x>
+				<y> 0 </y>
+				<z> 12.38 </z>
+			</location>
+			<static_friction>  0.80 </static_friction>
+			<dynamic_friction> 0.50 </dynamic_friction>
+			<spring_coeff unit="LBS/FT">      500000.0 </spring_coeff>
+			<damping_coeff unit="LBS/FT/SEC"> 500000.0 </damping_coeff>
+		</contact>
+	</ground_reactions>
+
+<!-- **********************************************************************
+        PROPULSION
+     *******************************************************************-->
+   
+   <!-- From original JSBSIM FDM DATCOM limited to 2 engines -->
+   <propulsion>
+
+      <engine file="CF6-80C2"> <!-- Engine1 -->
+			<location unit="IN">
+				<x> 1293.71 </x>
+				<y> -804.70 </y>
+				<z> -21.66 </z>
+			</location>
+			<orient unit="DEG"> 
+				<pitch> 0.00 </pitch>
+				<roll>   0.00 </roll>
+				<yaw>   0.00 </yaw>
+			</orient>
+			<feed>0</feed>
+			<feed>1</feed>
+			<feed>4</feed>
+			<thruster file="direct">
+				<location unit="IN">
+					<x> 1374.18 </x>
+					<y> -804.70 </y>
+					<z> -21.66 </z>
+				</location>
+				<orient unit="DEG">
+					<pitch> 0.00 </pitch>
+					<roll>   0.00 </roll>
+					<yaw>   0.00 </yaw>
+				</orient>
+			</thruster>
+		</engine>
+
+		<engine file="CF6-80C2"> <!-- Engine2 -->
+			<location unit="IN">
+				<x> 1148.24 </x>
+				<y> -213.77 </y>
+				<z> 6.19 </z>
+			</location>
+			<orient unit="DEG">
+				<pitch> 0.00 </pitch>
+				<roll>   0.00 </roll>
+				<yaw>   0.00 </yaw>
+			</orient>
+			<feed>3</feed>
+			<feed>2</feed>
+			<feed>5</feed>
+			<thruster file="direct">
+				<location unit="IN">
+					<x> 1228.71 </x>
+					<y> -213.77 </y>
+					<z> 6.19 </z>
+				</location>
+				<orient unit="DEG">
+					<pitch> 0.00 </pitch>
+					<roll>   0.00 </roll>
+					<yaw>   0.00 </yaw>
+				</orient>
+			</thruster>
+		</engine>
+
+		<engine file="CF6-80C2"> <!-- Engine3 -->
+			<location unit="IN">
+				<x> 1148.24 </x>
+				<y> 213.77 </y>
+				<z> 6.19 </z>
+			</location>
+			<orient unit="DEG">
+				<pitch> 0.00 </pitch>
+				<roll>   0.00 </roll>
+				<yaw>   0.00 </yaw>
+			</orient>
+			<feed>8</feed>
+			<feed>9</feed>
+			<feed>6</feed>
+			<thruster file="direct">
+				<location unit="IN">
+					<x> 1228.71 </x>
+					<y> 213.77 </y>
+					<z> 6.19 </z>
+				</location>
+				<orient unit="DEG">
+					<pitch> 0.00 </pitch>
+					<roll>   0.00 </roll>
+					<yaw>   0.00 </yaw>
+				</orient>
+			</thruster>
+		</engine>
+
+		<engine file="CF6-80C2"> <!-- Engine4 -->
+			<location unit="IN">
+				<x> 1293.71 </x>
+				<y> 804.70 </y>
+				<z> -21.66 </z>
+			</location>
+			<orient unit="DEG"> 
+				<pitch> 0.00 </pitch>
+				<roll>   0.00 </roll>
+				<yaw>   0.00 </yaw>
+			</orient>
+			<feed>11</feed>
+			<feed>10</feed>
+			<feed>7</feed>
+			<thruster file="direct">
+				<location unit="IN">
+					<x> 1374.18 </x>
+					<y> 804.70 </y>
+					<z> -21.66 </z>
+				</location>
+				<orient unit="DEG">
+					<pitch> 0.00 </pitch>
+					<roll>   0.00 </roll>
+					<yaw>   0.00 </yaw>
+				</orient>
+			</thruster>
+		</engine>
+   
+
+	  <!-- From original JSBSIM FDM DATCOM limited to 10 Fuel Tanks -->
+	  <tank type="FUEL" number="0"> <!-- Main1 -->
+			<location unit="IN">
+				<x>  1584.63 </x>
+				<y> -1157.53 </y>
+				<z>    64.99 </z>
+			</location>
+			<capacity unit="LBS"> 26556.75 </capacity>
+			<contents unit="LBS"> 13000 </contents>
+			<type> JP-8 </type>
+		</tank>
+
+		<tank type="FUEL" number="1"> <!-- Aux1 -->
+			<location unit="IN">
+				<x> 1494.88 </x>
+				<y> -894.45 </y>
+				<z>  102.13 </z>
+			</location>
+			<capacity unit="LBS"> 30119.27 </capacity>
+			<contents unit="LBS"> 15000 </contents>
+			<type> JP-8 </type>
+		</tank>
+
+		<tank type="FUEL" number="2"> <!-- Aux2 -->
+			<location unit="IN">
+				<x> 1293.71 </x>
+				<y> -544.72 </y>
+				<z>  142.37 </z>
+			</location>
+			<capacity unit="LBS"> 24461.86 </capacity>
+			<contents unit="LBS"> 12000 </contents>
+			<type> JP-8 </type>
+		</tank>
+
+		<tank type="FUEL" number="3"> <!-- Main2 -->
+			<location unit="IN">
+				<x> 1176.10 </x>
+				<y> -300.21 </y>
+				<z>  164.03 </z>
+			</location>
+			<capacity unit="LBS"> 43521.73 </capacity>
+			<contents unit="LBS"> 22000 </contents>
+			<type> JP-8 </type>
+		</tank>
+
+		<tank type="FUEL" number="4"> <!-- ExtRng1 -->
+			<location unit="IN">
+				<x> 1417.51 </x>
+				<y> -526.15 </y>
+				<z>  142.37 </z>
+			</location>
+			<capacity unit="LBS"> 15566.64 </capacity>
+			<contents unit="LBS"> 8000 </contents>
+			<type> JP-8 </type>
+		</tank>
+
+		<tank type="FUEL" number="5"> <!-- ExtRng2 -->
+			<location unit="IN">
+				<x> 1358.70 </x>
+				<y> -287.83 </y>
+				<z>  164.03 </z>
+			</location>
+			<capacity unit="LBS"> 26024.97 </capacity>
+			<contents unit="LBS"> 13000 </contents>
+			<type> JP-8 </type>
+		</tank>
+
+		<tank type="FUEL" number="6"> <!-- ExtRng3 -->
+			<location unit="IN">
+				<x> 1358.70 </x>
+				<y>  287.33 </y>
+				<z>  164.03 </z>
+			</location>
+			<capacity unit="LBS"> 26024.97 </capacity>
+			<contents unit="LBS"> 13000 </contents>
+			<type> JP-8 </type>
+		</tank>
+
+		<tank type="FUEL" number="7"> <!-- ExtRng4 -->
+			<location unit="IN">
+				<x> 1417.51 </x>
+				<y>  526.15 </y>
+				<z>  142.37 </z>
+			</location>
+			<capacity unit="LBS"> 15566.64 </capacity>
+			<contents unit="LBS"> 8000 </contents>
+			<type> JP-8 </type>
+		</tank>
+
+		<tank type="FUEL" number="8"> <!-- Main3 -->
+			<location unit="IN">
+				<x> 1176.10 </x>
+				<y>  300.21 </y>
+				<z>  164.03 </z>
+			</location>
+			<capacity unit="LBS"> 43521.73 </capacity>
+			<contents unit="LBS"> 22000 </contents>
+			<type> JP-8 </type>
+		</tank>
+
+		<tank type="FUEL" number="9"> <!-- Aux3 -->
+			<location unit="IN">
+				<x> 1293.71 </x>
+				<y>  544.72 </y>
+				<z>  142.37 </z>
+			</location>
+			<capacity unit="LBS"> 24461.86 </capacity>
+			<contents unit="LBS"> 12000 </contents>
+			<type> JP-8 </type>
+		</tank>
+
+		<tank type="FUEL" number="10"> <!-- Aux4 -->
+			<location unit="IN">
+				<x> 1494.88 </x>
+				<y>  894.45 </y>
+				<z>  102.13 </z>
+			</location>
+			<capacity unit="LBS"> 30119.27 </capacity>
+			<contents unit="LBS"> 15000 </contents>
+			<type> JP-8 </type>
+		</tank>
+
+		<tank type="FUEL" number="11"> <!-- Main4 -->
+			<location unit="IN">
+				<x> 1584.63 </x>
+				<y> 1157.53 </y>
+				<z>   64.99 </z>
+			</location>
+			<capacity unit="LBS"> 26566.75 </capacity>
+			<contents unit="LBS"> 13000 </contents>
+			<type> JP-8 </type>
+		</tank>
+
+	  <!--    THRUST COEFFICIENT
+         Datcom uses a different formula than JSBSim does to calculate thrust coefficent. 
+         Datcom uses:
+            Tc = Total Thrust / ( q * s)
+         contained in property: propulsion/total-thrust-coefficient
+
+         whereas JSBSim calculates per-engine thrust coefficient
+            Tc = Thrust / ( RPS^2 * D^4 * rho )
+         contained in property: propulsion/engine[x]/thrust-coefficient
+      -->
+      <function name="propulsion/total-thrust-coefficient">
+         <description> Total thrust coefficient calculation </description>
+         <quotient>
+            <sum>
+               <property>propulsion/engine[0]/thrust-lbs</property>
+               <property>propulsion/engine[1]/thrust-lbs</property>
+			   <property>propulsion/engine[2]/thrust-lbs</property>
+			   <property>propulsion/engine[3]/thrust-lbs</property> 
+            </sum>
+            <property>aero/qbar-area</property>
+         </quotient>
+      </function>		
+		
+   </propulsion>
+
+
+<!-- **********************************************************************
+        AUTOPILOT
+     *******************************************************************-->
+   <!-- This is provided so that you can write an autopilot 
+        model and it will not be overwritten by Datcom       -->
+
+    <!--
+    <autopilot FILE="C-5M_autopilot"/>
+    -->
+
+<!-- **********************************************************************
+        FLIGHT CONTROLS
+     *******************************************************************-->
+   <flight_control name="FCS: C-5M">
+
+      <channel name="Pitch">
+
+         <summer name="fcs/pitch-control-sum">
+            <input> fcs/elevator-cmd-norm </input>
+            <input> fcs/pitch-trim-cmd-norm </input>
+            <clipto>
+               <min> -1.0 </min>
+               <max>  1.0 </max>
+            </clipto>
+            <output> fcs/elevator-pos-norm </output>
+         </summer>
+
+         <aerosurface_scale name="fcs/delta-elev-deg">
+            <input> fcs/elevator-pos-norm </input>
+            <zero_centered> true </zero_centered>
+            <domain>
+               <min> -1.0 </min>
+               <max>  1.0 </max>
+            </domain>
+            <range>
+               <min>-20.00</min>
+               <max> 16.00</max>
+            </range>
+            <output> fcs/elevator-pos-deg </output>
+         </aerosurface_scale>
+
+      </channel>
+
+
+      <channel name="Roll">
+
+         <summer name="fcs/roll-control-sum">
+            <input> fcs/aileron-cmd-norm </input>
+            <input> fcs/roll-trim-cmd-norm </input>
+            <clipto>
+               <min> -1.0 </min>
+               <max>  1.0 </max>
+            </clipto>
+            <output> fcs/aileron-pos-norm </output>
+         </summer>
+
+         <aerosurface_scale name="fcs/left-aileron">
+            <input> fcs/aileron-pos-norm </input>
+            <zero_centered> false </zero_centered>
+            <domain>
+               <min> -1.0 </min>
+               <max>  1.0 </max>
+            </domain>
+            <range>
+               <min> -32.00</min>
+               <max>  32.00</max>
+            </range>
+            <output> fcs/left-aileron-pos-deg </output>
+         </aerosurface_scale>
+
+         <aerosurface_scale name="fcs/right-aileron">
+            <input> -fcs/aileron-pos-norm </input>
+            <zero_centered> false </zero_centered>
+            <domain>
+               <min> -1.0 </min>
+               <max>  1.0 </max>
+            </domain>
+            <range>
+               <min>-32.00</min>
+               <max> 32.00</max>
+            </range>
+            <output> fcs/right-aileron-pos-deg </output>
+         </aerosurface_scale>
+
+         <summer name="fcs/total-aileron-pos-deg">
+            <description> Total control deflection (Left-Right)</description>
+            <input>  fcs/left-aileron-pos-deg </input>
+            <input> -fcs/right-aileron-pos-deg </input>
+         </summer>
+
+      </channel>
+
+
+      <channel name="Yaw">
+
+         <!-- Datcom doesn't calculate rudder parameters, but this is included for completeness -->
+         <summer name="fcs/yaw-control-sum">
+            <input> fcs/rudder-cmd-norm </input>
+            <input> fcs/yaw-trim-cmd-norm </input>
+            <clipto>
+               <min> -1.0 </min>
+               <max>  1.0 </max>
+            </clipto>
+            <output>fcs/rudder-pos-norm</output>
+         </summer>
+
+         <aerosurface_scale name="fcs/rudder">
+            <input> fcs/rudder-pos-norm </input>
+            <zero_centered> true </zero_centered>
+            <domain>
+               <min> -1.0 </min>
+               <max>  1.0 </max>
+            </domain>
+            <range>
+               <min> -20.0 </min>
+               <max>  20.0 </max>
+            </range>
+            <output> fcs/rudder-pos-deg </output>
+         </aerosurface_scale>
+
+      </channel>
+
+
+      <channel name="Flaps">
+
+         <kinematic name="flap-control">
+            <input> fcs/flap-cmd-norm </input>
+            <traverse>
+               <setting>
+                  <position>  .000 </position>          <!--    .00 deg -->
+                  <time>       .00 </time>
+               </setting>
+               <setting>
+                  <position>  .375 </position>          <!--  15.00 deg -->
+                  <time>      2.00 </time>
+               </setting>
+               <setting>
+                  <position>  .750 </position>          <!--  30.00 deg -->
+                  <time>      4.00 </time>
+               </setting>
+               <setting>
+                  <position> 1.000 </position>          <!--  40.00 deg -->
+                  <time>      6.00 </time>
+               </setting>
+            </traverse>
+            <output> fcs/flap-pos-norm </output>
+         </kinematic>
+
+         <aerosurface_scale name="fcs/flap-position">
+            <input> fcs/flap-pos-norm </input>
+               <zero_centered> false </zero_centered>
+               <domain>
+                  <min>  0.0 </min>
+                  <max>  1.0 </max>
+               </domain>
+               <range>
+                  <min>   .00 </min>
+                  <max> 40.00 </max>
+               </range>
+               <output> fcs/flap-pos-deg </output>
+         </aerosurface_scale>
+
+      </channel>
+
+
+      <channel name="Landing Gear">
+         <kinematic name="gear-control">
+            <input>gear/gear-cmd-norm</input>
+            <traverse>
+               <setting>
+                  <position> 0 </position>
+                  <time>     0 </time>
+               </setting>
+               <setting>
+                  <position> 1 </position>
+                  <time>     5 </time>
+               </setting>
+            </traverse>
+            <output>gear/gear-pos-norm</output>
+         </kinematic>
+      </channel>
+
+   </flight_control>
+
+
+<!-- **********************************************************************
+                                    AERODYNAMICS
+     *******************************************************************-->
+   <!-- Link to the aerodynamics file -->
+   <aerodynamics file="C-5M_aero.xml"/>
+
+<!-- ********************************************************************** -->
+
+     <!--
+     We are specifying exact parameters that we want to record,
+     instead of using the groups, because the contents of
+     the groups may change with different versions of JSBSim,
+     which screws up the parameters for the Gnuplot scripts.
+     If you add parameters, add them at the end of this list.
+     -->
+
+   <!-- <output name="C-5M.csv" type="CSV" rate="20">
+
+      <property> velocities/vc-kts </property>
+      <property> position/h-sl-ft </property>
+      <property> attitude/pitch-deg </property>
+      <property> attitude/roll-deg </property>
+      <property> attitude/heading-true-deg </property>
+      <property> aero/alpha-deg </property>
+      <property> aero/beta-deg </property>
+      <property> aero/alphadot-deg_sec </property>
+      <property> aero/betadot-deg_sec </property>
+      <property> flight-path/gamma-rad </property>
+      <property> velocities/mach </property>
+      <property> velocities/vt-fps </property>
+      <property> velocities/h-dot-fps </property>
+      <property> aero/alpha-rad </property>
+      <property> aero/alphadot-rad_sec </property>
+      <property> aero/beta-rad </property>
+      <property> aero/betadot-rad_sec </property>
+      <property> attitude/pitch-rad </property>
+      <property> attitude/roll-rad </property>
+      <property> attitude/heading-true-rad </property>
+      <property> velocities/q-deg_sec </property>
+      <property> velocities/p-deg_sec </property>
+      <property> velocities/r-deg_sec </property>
+      <property> velocities/q-rad_sec </property>
+      <property> velocities/p-rad_sec </property>
+      <property> velocities/r-rad_sec </property>
+      <property> accelerations/pdot-rad_sec2 </property>
+      <property> accelerations/qdot-rad_sec2 </property>
+      <property> accelerations/rdot-rad_sec2 </property>
+      <property> accelerations/Nz </property>
+      <property> fcs/elevator-cmd-norm </property>
+      <property> fcs/pitch-trim-cmd-norm </property>
+      <property> fcs/elevator-pos-norm </property>
+      <property> fcs/elevator-pos-deg </property>
+
+      <property> fcs/aileron-cmd-norm </property>
+      <property> fcs/roll-trim-cmd-norm </property>
+      <property> fcs/aileron-pos-norm </property>
+      <property> fcs/left-aileron-pos-deg </property>
+      <property> fcs/right-aileron-pos-deg </property>
+
+      <property> fcs/rudder-cmd-norm </property>
+      <property> fcs/yaw-trim-cmd-norm </property>
+      <property> fcs/rudder-pos-norm </property>
+      <property> fcs/rudder-pos-deg </property>
+
+      <property> fcs/flap-cmd-norm </property>
+      <property> fcs/flap-pos-norm </property>
+      <property> fcs/flap-pos-deg </property>
+
+      <property> gear/gear-cmd-norm </property>
+      <property> gear/gear-pos-norm </property>
+
+      <property> inertia/cg-x-in </property>
+      <property> inertia/cg-y-in </property>
+      <property> inertia/cg-z-in </property>
+      <property> inertia/empty-weight-lbs </property>
+      <property> inertia/weight-lbs </property>
+      <property> position/h-agl-ft </property>
+      <property> position/h-sl-meters </property>
+
+   </output> -->
+
+</fdm_config>
+
