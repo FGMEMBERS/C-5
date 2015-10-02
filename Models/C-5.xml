@@ -1,68 +1,70 @@
 <?xml version="1.0"?>
+
 <PropertyList>
-  <!-- Jon Bourgeois - 3D Model except for engines and pylons from Beluga Model & wheels from 747-400 -->	
-  <!-- Load Aircraft 3D Model -->
-  <path>C-5.ac</path>
-  <offsets>
-	  <pitch-deg>-0.6</pitch-deg> 
-	  <heading-deg>0</heading-deg>
-	  <roll-deg>0</roll-deg>
-	  <x-m>0</x-m>
-	  <y-m>0</y-m>
-	  <z-m>4.8</z-m>
+	<!-- Jon Bourgeois - 3D Model except for engines and pylons from Beluga Model & wheels from 747-400 -->	
+	<!-- Load Aircraft 3D Model -->
+	<path>C-5.ac</path>
+	<offsets>
+		<pitch-deg>-0.6</pitch-deg> 
+		<heading-deg>0</heading-deg>
+		<roll-deg>0</roll-deg>
+		<x-m>0</x-m>
+		<y-m>0</y-m>
+		<z-m>4.8</z-m>
 	</offsets>
   
-  <!-- Load Engines -->
+	<!-- Load Engines -->
 	<model>
-	  <path>Aircraft/C-5/Models/C-5_Eng_CF6.xml</path> 
+		<path>Aircraft/C-5/Models/C-5_Eng_CF6.xml</path> 
 	</model> 
   
-  <!-- Load Landing Gear -->
+	<!-- Load Landing Gear -->
 	<model>
-	  <path>Aircraft/C-5/Models/C-5_LandingGear.xml</path>
+		<path>Aircraft/C-5/Models/C-5_LandingGear.xml</path>
 	</model>
   
-  <!-- Load Cockpit -->
+	<!-- Load Cockpit -->
 	<model>
-	  <path>Aircraft/C-5/Models/C-5_Cockpit.xml</path>
+		<path>Aircraft/C-5/Models/C-5_Cockpit.xml</path>
 	</model>
   	
-  <!-- Load Cargobay -->
+	<!-- Load Cargobay -->
 	<model>
-	  <path>Aircraft/C-5/Models/C-5_Cargobay.xml</path>
+		<path>Aircraft/C-5/Models/C-5_Cargobay.xml</path>
 	</model>
 	
 	<!-- Load Passenger Compartment *** For Future Implementation ***  -->
 	<!-- <model>
-	  <path>Aircraft/C-5/Models/C-5_RearCabin.xml</path>
+		<path>Aircraft/C-5/Models/C-5_RearCabin.xml</path>
 	</model> -->	
   	
 	<!-- 3D Model Material Settings -->
 	<animation> 
-      <type>material</type> 
-      <object-name></object-name>
-      <property-base>sim/model/C-5</property-base>
-      <diffuse>
-        <red>0.93</red>
-        <green>0.93</green>
-        <blue>0.93</blue>
-      </diffuse>
-	  <ambient>
-        <red>0.93</red>
-        <green>0.93</green>
-        <blue>0.93</blue>
-      </ambient>
+		<type>material</type> 
+		<object-name></object-name>
+		<property-base>sim/model/C-5</property-base>
+		<diffuse>
+			<red>0.93</red>
+			<green>0.93</green>
+			<blue>0.93</blue>
+		</diffuse>
+		<ambient>
+			<red>0.93</red>
+			<green>0.93</green>
+			<blue>0.93</blue>
+		</ambient>
 	</animation>
 	
 	<!-- 	NASAL Code for Liveries 		-->	
 	<nasal>
-      <load>
-        var livery_update = aircraft.livery_update.new("Aircraft/C-5/Models/Liveries", 10);
-      </load>
-      <unload>
-        livery_update.stop();
-      </unload>
-   </nasal>					
+		<load>
+			var livery_update = aircraft.livery_update.new("Aircraft/C-5/Models/Liveries", 10);
+		</load>
+		<unload>
+			livery_update.stop();
+		</unload>
+	</nasal>
+
 	<!-- 	**********************************   OBJECTS FOR LIVERIES ************************************		-->
 	<animation>
 		<type>material</type>
@@ -217,7 +219,7 @@
 	
 	<!-- ************************************     OBJECTS FOR KNEELING   ************************************** -->	
 	<animation>
-        <name>KneelAC</name>
+	        <name>KneelAC</name>
 		<!-- ********************************     CARGO BAY OBJECTS      ****************************************-->
 		<object-name>CargoBay.Group</object-name>
 		
@@ -363,10 +365,12 @@
 		<object-name>Antenna2</object-name>
 		<object-name>Antenna3</object-name>
 		<object-name>Antenna4</object-name>
-		<!-- <object-name>Antenna5</object-name>
-		<object-name>Antenna6</object-name>
-		<object-name>Antenna7</object-name> -->
-    </animation>
+		<object-name>ExtWindow1</object-name>
+		<object-name>ExtWindow2</object-name>
+		<object-name>ExtWindow3</object-name>
+		<object-name>ExtWindow4</object-name>
+		<object-name>ExtWindow5</object-name>
+	</animation>
 	
 	<animation>
 		<type>translate</type>
@@ -388,6 +392,7 @@
 			<z> 1.00</z>
 		</axis>
 	</animation>
+
 	<animation>
 		<type>rotate</type>
 		<object-name>NoseGear</object-name>
@@ -410,7 +415,7 @@
 
 	<!-- WING FLEX -->
 	<!-- Left Wing --> 
-    <animation>
+	<animation>
 		<name>LeftWing.Section1</name>
 		<object-name>LeftWing.1</object-name>
 		<object-name>Slat3</object-name>
@@ -427,6 +432,7 @@
 		<object-name>FanDisk2</object-name>
 		<object-name>FanHub2</object-name>
 	</animation>
+
 	<animation>
 		<name>LeftWing.Section2</name>
 		<object-name>LeftWing.2</object-name>
@@ -447,6 +453,7 @@
 		<object-name>FanDisk1</object-name>
 		<object-name>FanHub1</object-name>
 	</animation>
+
 	<animation>
 		<name>LeftWing.Section3</name>
 		<object-name>LeftWing.3</object-name>
@@ -460,59 +467,58 @@
 		<object-name>Aileron1</object-name>
 	</animation>
    
-  <animation>
-  <type>rotate</type>
-  <object-name>LeftWing.Section1</object-name>
-  <object-name>LeftWing.Section2</object-name>
-  <object-name>LeftWing.Section3</object-name>
-  <property>fdm/jsbsim/aero/coefficient/CLalpha</property>
-  <factor>0.0000025</factor>  
-  <offset-deg>0</offset-deg>   
-  <axis>
-	<x1-m>13.4945</x1-m>
-	<y1-m>-3.8645</y1-m>
-	<z1-m>1.34211</z1-m>
-	<x2-m>3.43181</x2-m>
-	<y2-m>-3.86803</y2-m>
-	<z2-m>1.21859</z2-m>
-  </axis>
- </animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>LeftWing.Section1</object-name>
+		<object-name>LeftWing.Section2</object-name>
+		<object-name>LeftWing.Section3</object-name>
+		<property>fdm/jsbsim/aero/coefficient/CLalpha</property>
+		<factor>0.0000025</factor>  
+		<offset-deg>0</offset-deg>   
+		<axis>
+			<x1-m>13.4945</x1-m>
+			<y1-m>-3.8645</y1-m>
+			<z1-m>1.34211</z1-m>
+			<x2-m>3.43181</x2-m>
+			<y2-m>-3.86803</y2-m>
+			<z2-m>1.21859</z2-m>
+		</axis>
+	</animation>
  
- <animation>
-  <type>rotate</type>
-  <object-name>LeftWing.Section2</object-name>
-  <object-name>LeftWing.Section3</object-name>
-  <property>fdm/jsbsim/aero/coefficient/CLalpha</property>
-  <factor>0.0000015</factor>
-  <offset-deg>0</offset-deg>   
-  <axis>
-	<x1-m>8.78452</x1-m>
-	<y1-m>-12.6003</y1-m>
-	<z1-m>2.02533</z1-m>
-	<x2-m>1.32096</x2-m>
-	<y2-m>-12.6013</y2-m>
-	<z2-m>1.93734</z2-m>
-  </axis>
- </animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>LeftWing.Section2</object-name>
+		<object-name>LeftWing.Section3</object-name>
+		<property>fdm/jsbsim/aero/coefficient/CLalpha</property>
+		<factor>0.0000015</factor>
+		<offset-deg>0</offset-deg>   
+		<axis>
+			<x1-m>8.78452</x1-m>
+			<y1-m>-12.6003</y1-m>
+			<z1-m>2.02533</z1-m>
+			<x2-m>1.32096</x2-m>
+			<y2-m>-12.6013</y2-m>
+			<z2-m>1.93734</z2-m>
+		</axis>
+	</animation>
  
- <animation>
-  <type>rotate</type>
-  <object-name>LeftWing.Section3</object-name>
-  <property>fdm/jsbsim/aero/coefficient/CLalpha</property>
-  <factor>0.0000005</factor>
-  <offset-deg>0</offset-deg>
-  <axis>
-	<x1-m>4.45143</x1-m>
-	<y1-m>-20.9721</y1-m>
-	<z1-m>2.7817</z1-m>
-	<x2-m>-0.763225</x2-m>
-	<y2-m>-20.9737</y2-m>
-	<z2-m>2.7263</z2-m>
-  </axis>
- </animation> -->
+	<animation>
+		<type>rotate</type>
+		<object-name>LeftWing.Section3</object-name>
+		<property>fdm/jsbsim/aero/coefficient/CLalpha</property>
+		<factor>0.0000005</factor>
+		<offset-deg>0</offset-deg>
+		<axis>
+			<x1-m>4.45143</x1-m>
+			<y1-m>-20.9721</y1-m>
+			<z1-m>2.7817</z1-m>
+			<x2-m>-0.763225</x2-m>
+			<y2-m>-20.9737</y2-m>
+			<z2-m>2.7263</z2-m>
+		</axis>
+	</animation> -->
  
- <!-- Right Wing -->
-
+	<!-- Right Wing -->
 	<animation>
 		<name>RightWing.Section1</name>
 		<object-name>RightWing.1</object-name>
@@ -530,6 +536,7 @@
 		<object-name>FanDisk3</object-name>
 		<object-name>FanHub3</object-name>
 	</animation>
+
 	<animation>
 		<name>RightWing.Section2</name>
 		<object-name>RightWing.2</object-name>
@@ -550,6 +557,7 @@
 		<object-name>FanDisk4</object-name>
 		<object-name>FanHub4</object-name>
 	</animation>
+
 	<animation>
 		<name>RightWing.Section3</name>
 		<object-name>RightWing.3</object-name>
@@ -563,205 +571,236 @@
 		<object-name>Aileron2</object-name>
 	</animation>
  
-  <animation>
-  <type>rotate</type>
-  <object-name>RightWing.Section1</object-name>
-  <object-name>RightWing.Section2</object-name>
-  <object-name>RightWing.Section3</object-name>
-  <property>fdm/jsbsim/aero/coefficient/CLalpha</property>
-  <factor>-0.0000025</factor>  
-  <offset-deg>0</offset-deg>   
-  <axis>
-	<x1-m>13.4945</x1-m>
-	<y1-m>3.8645</y1-m>
-	<z1-m>1.34211</z1-m>
-	<x2-m>3.43181</x2-m>
-	<y2-m>3.86803</y2-m>
-	<z2-m>1.21859</z2-m>
-  </axis>
- </animation>
- 
- <animation>
-  <type>rotate</type>
-  <object-name>RightWing.Section2</object-name>
-  <object-name>RightWing.Section3</object-name>
-  <property>fdm/jsbsim/aero/coefficient/CLalpha</property>
-  <factor>-0.0000015</factor>
-  <offset-deg>0</offset-deg>   
-  <axis>
-	<x1-m>8.78452</x1-m>
-	<y1-m>12.6003</y1-m>
-	<z1-m>2.02533</z1-m>
-	<x2-m>1.32096</x2-m>
-	<y2-m>12.6013</y2-m>
-	<z2-m>1.93734</z2-m>
-  </axis>
- </animation>
- 
- <animation>
-  <type>rotate</type>
-  <object-name>RightWing.Section3</object-name>
-  <property>fdm/jsbsim/aero/coefficient/CLalpha</property>
-  <factor>-0.0000005</factor>
-  <offset-deg>0</offset-deg>
-  <axis>
-	<x1-m>4.45143</x1-m>
-	<y1-m>20.9721</y1-m>
-	<z1-m>2.7817</z1-m>
-	<x2-m>-0.763225</x2-m>
-	<y2-m>20.9737</y2-m>
-	<z2-m>2.7263</z2-m>
-  </axis>
- </animation>
-
-<!-- ANIMATION -->
-<!-- Engines -->
-
- <animation>			<!-- Engine1 - Fan Spin -->
-  <type>spin</type>
-  <object-name>FanDisk1</object-name>
-  <object-name>FanHub1</object-name>
-  <factor>-1000</factor>
-  <property>engines/engine[0]/n1</property>
-  <center>
-   <x-m>-9.10123</x-m>
-   <y-m>-19.1513</y-m>
-   <z-m>-4.90465</z-m>
-  </center>
-  <axis>
-   <x>1</x>
-   <y>0</y>
-   <z>0</z>
-  </axis>
- </animation>
- 
- <animation>			<!-- Engine2 - Fan Spin -->
-  <type>spin</type>
-  <object-name>FanDisk2</object-name>
-  <object-name>FanHub2</object-name>
-  <factor>-1000</factor>
-  <property>engines/engine[1]/n1</property>
-  <center>
-   <x-m>-12.0851</x-m>
-   <y-m>-12.21</y-m>
-   <z-m>-4.18732</z-m>
-  </center>
-  <axis>
-   <x>1</x>
-   <y>0</y>
-   <z>0</z>
-  </axis>
- </animation>
- 
- <animation>			<!-- Engine3 - Fan Spin -->
-  <type>spin</type>
-  <object-name>FanDisk3</object-name>
-  <object-name>FanHub3</object-name>
-  <factor>-1000</factor>
-  <property>engines/engine[2]/n1</property>
-  <center>
-   <x-m>-12.0851</x-m>
-   <y-m>12.2721</y-m>
-   <z-m>-4.20175</z-m>
-  </center>
-  <axis>
-   <x>1</x>
-   <y>0</y>
-   <z>0</z>
-  </axis>
- </animation>
-
- <animation>			<!-- Engine4 Fan Spin -->
-  <type>spin</type>
-  <object-name>FanDisk4</object-name>
-  <object-name>FanHub4</object-name>
-  <factor>-1000</factor>
-  <property>engines/engine[3]/n1</property>
-  <center>
-   <x-m>-9.10123</x-m>
-   <y-m>19.1509</y-m>
-   <z-m>-4.90465</z-m>
-  </center>
-  <axis>
-   <x>1</x>
-   <y>0</y>
-   <z>0</z>
-  </axis>
- </animation>
- 
- <!-- Thrust Reverse -->
-<animation>
-  <type>translate</type>		<!-- Engine1 - TR -->
-  <object-name>ThrustRvs1</object-name>
-  <property>/engines/engine/reverser-pos-norm</property>
-  <interpolation>
-	<entry><ind>0</ind><dep>0.0</dep></entry>
-    <entry><ind>1</ind><dep>0.6</dep></entry>
-  </interpolation>
-  <axis>
-    <x>1.0</x>
-    <y>0.0</y>
-    <z>0</z>
-  </axis>
-</animation> 
-
-<animation>
-  <type>translate</type>		<!-- Engine2 - TR -->		
-  <object-name>ThrustRvs2</object-name>
-  <property>/engines/engine[1]/reverser-pos-norm</property>
-  <interpolation>
-	<entry><ind>0</ind><dep>0.0</dep></entry>
-    <entry><ind>1</ind><dep>0.6</dep></entry>
-  </interpolation>
-  <axis>
-    <x>1.0</x>
-    <y>0.0</y>
-    <z>0</z>
-  </axis>
-</animation> 
-
-<animation>
-  <type>translate</type>		<!-- Engine3 - TR -->
-  <object-name>ThrustRvs3</object-name>
-  <property>/engines/engine[2]/reverser-pos-norm</property>
-  <interpolation>
-	<entry><ind>0</ind><dep>0.0</dep></entry>
-    <entry><ind>1</ind><dep>0.6</dep></entry>
-  </interpolation>
-  <axis>
-    <x>1.0</x>
-    <y>0.0</y>
-    <z>0</z>
-  </axis>
-</animation> 
-
-<animation>
-  <type>translate</type>		<!-- Engine4 - TR -->
-  <object-name>ThrustRvs4</object-name>
-  <property>/engines/engine[3]/reverser-pos-norm</property>
-  <interpolation>
-	<entry><ind>0</ind><dep>0.0</dep></entry>
-    <entry><ind>1</ind><dep>0.6</dep></entry>
-  </interpolation>
-  <axis>
-    <x>1.0</x>
-    <y>0.0</y>
-    <z>0</z>
-  </axis>
-</animation> 
- 
- <!-- TAIL -->
- <!-- Rudder -->
+	<animation>
+		<type>rotate</type>
+		<object-name>RightWing.Section1</object-name>
+		<object-name>RightWing.Section2</object-name>
+		<object-name>RightWing.Section3</object-name>
+		<property>fdm/jsbsim/aero/coefficient/CLalpha</property>
+		<factor>-0.0000025</factor>  
+		<offset-deg>0</offset-deg>   
+		<axis>
+			<x1-m>13.4945</x1-m>
+			<y1-m>3.8645</y1-m>
+			<z1-m>1.34211</z1-m>
+			<x2-m>3.43181</x2-m>
+			<y2-m>3.86803</y2-m>
+			<z2-m>1.21859</z2-m>
+		</axis>
+	</animation>
  
 	<animation>
+		<type>rotate</type>
+		<object-name>RightWing.Section2</object-name>
+		<object-name>RightWing.Section3</object-name>
+		<property>fdm/jsbsim/aero/coefficient/CLalpha</property>
+		<factor>-0.0000015</factor>
+		<offset-deg>0</offset-deg>   
+		<axis>
+			<x1-m>8.78452</x1-m>
+			<y1-m>12.6003</y1-m>
+			<z1-m>2.02533</z1-m>
+			<x2-m>1.32096</x2-m>
+			<y2-m>12.6013</y2-m>
+			<z2-m>1.93734</z2-m>
+		</axis>
+	</animation>
+ 
+	<animation>
+		<type>rotate</type>
+		<object-name>RightWing.Section3</object-name>
+		<property>fdm/jsbsim/aero/coefficient/CLalpha</property>
+		<factor>-0.0000005</factor>
+		<offset-deg>0</offset-deg>
+		<axis>
+			<x1-m>4.45143</x1-m>
+			<y1-m>20.9721</y1-m>
+			<z1-m>2.7817</z1-m>
+			<x2-m>-0.763225</x2-m>
+			<y2-m>20.9737</y2-m>
+			<z2-m>2.7263</z2-m>
+		</axis>
+	</animation>
+
+	<!-- ANIMATION -->
+	<!-- Engines -->
+	<animation>			<!-- Engine1 - Fan Spin -->
+		<type>spin</type>
+		<object-name>FanDisk1</object-name>
+		<object-name>FanHub1</object-name>
+		<factor>-1000</factor>
+		<property>engines/engine[0]/n1</property>
+		<center>
+			<x-m>-9.10123</x-m>
+			<y-m>-19.1513</y-m>
+			<z-m>-4.90465</z-m>
+		</center>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+	</animation>
+ 
+	<animation>			<!-- Engine2 - Fan Spin -->
+		<type>spin</type>
+		<object-name>FanDisk2</object-name>
+		<object-name>FanHub2</object-name>
+		<factor>-1000</factor>
+		<property>engines/engine[1]/n1</property>
+		<center>
+			<x-m>-12.0851</x-m>
+			<y-m>-12.21</y-m>
+			<z-m>-4.18732</z-m>
+		</center>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+	</animation>
+ 
+	<animation>			<!-- Engine3 - Fan Spin -->
+		<type>spin</type>
+		<object-name>FanDisk3</object-name>
+		<object-name>FanHub3</object-name>
+		<factor>-1000</factor>
+		<property>engines/engine[2]/n1</property>
+		<center>
+			<x-m>-12.0851</x-m>
+			<y-m>12.2721</y-m>
+			<z-m>-4.20175</z-m>
+		</center>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+	</animation>
+
+	<animation>			<!-- Engine4 Fan Spin -->
+		<type>spin</type>
+		<object-name>FanDisk4</object-name>
+		<object-name>FanHub4</object-name>
+		<factor>-1000</factor>
+		<property>engines/engine[3]/n1</property>
+		<center>
+			<x-m>-9.10123</x-m>
+			<y-m>19.1509</y-m>
+			<z-m>-4.90465</z-m>
+		</center>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+	</animation>
+ 
+	<!-- Thrust Reverse -->
+	<animation>
+		<type>translate</type>		<!-- Engine1 - TR -->
+		<object-name>ThrustRvs1</object-name>
+		<property>/engines/engine/reverser-pos-norm</property>
+		<interpolation>
+			<entry>
+				<ind>0</ind>
+				<dep>0.0</dep>
+			</entry>
+			<entry>
+				<ind>1</ind>
+				<dep>0.6</dep>
+			</entry>
+		</interpolation>
+		<axis>
+			<x>1.0</x>
+			<y>0.0</y>
+			<z>0</z>
+		</axis>
+	</animation> 
+
+	<animation>
+		<type>translate</type>		<!-- Engine2 - TR -->		
+		<object-name>ThrustRvs2</object-name>
+		<property>/engines/engine[1]/reverser-pos-norm</property>
+		<interpolation>
+			<entry>
+				<ind>0</ind>
+				<dep>0.0</dep>
+			</entry>
+			<entry>
+				<ind>1</ind>
+				<dep>0.6</dep>
+			</entry>
+		</interpolation>
+		<axis>
+			<x>1.0</x>
+			<y>0.0</y>
+			<z>0</z>
+		</axis>
+	</animation> 
+
+	<animation>
+		<type>translate</type>		<!-- Engine3 - TR -->
+		<object-name>ThrustRvs3</object-name>
+		<property>/engines/engine[2]/reverser-pos-norm</property>
+		<interpolation>
+			<entry>
+				<ind>0</ind>
+				<dep>0.0</dep>
+			</entry>
+			<entry>
+				<ind>1</ind>
+				<dep>0.6</dep>
+			</entry>
+		</interpolation>
+		<axis>
+			<x>1.0</x>
+			<y>0.0</y>
+			<z>0</z>
+		</axis>
+	</animation> 
+
+	<animation>
+		<type>translate</type>		<!-- Engine4 - TR -->
+		<object-name>ThrustRvs4</object-name>
+		<property>/engines/engine[3]/reverser-pos-norm</property>
+		<interpolation>
+			<entry>
+				<ind>0</ind>
+				<dep>0.0</dep>
+			</entry>
+			<entry>
+				<ind>1</ind>
+				<dep>0.6</dep>
+			</entry>
+		</interpolation>
+		<axis>
+			<x>1.0</x>
+			<y>0.0</y>
+			<z>0</z>
+		</axis>
+	</animation> 
+ 
+ 	<!-- TAIL -->
+ 	<!-- Rudder -->
+ 	<animation>
 		<type>rotate</type>
 		<object-name>Rudder1</object-name>
 		<object-name>Rudder2</object-name>
 		<property>surface-positions/rudder-pos-norm</property>
 		<interpolation>
-		  <entry><ind>-1.0</ind><dep>-35.0</dep></entry>
-		  <entry><ind>0.0</ind><dep>0.0</dep></entry>
-		  <entry><ind>1.0</ind><dep>35.0</dep></entry>
+			<entry>
+				<ind>-1.0</ind>
+				<dep>-35.0</dep>
+			</entry>
+			<entry>
+				<ind>0.0</ind>
+				<dep>0.0</dep>
+			</entry>
+			<entry>
+				<ind>1.0</ind>
+				<dep>35.0</dep>
+			</entry>
 		</interpolation>
 		<axis>   
 			<x1-m> 28.9567</x1-m>
@@ -773,17 +812,25 @@
 		</axis>
 	</animation>
  
- <!-- Elevators -->
- 
+	 <!-- Elevators -->
 	<animation>
 		<type>rotate</type>
 		<object-name>Elevator1</object-name>
 		<object-name>Elevator2</object-name>
 		<property>surface-positions/elevator-pos-norm</property>
 		<interpolation>
-		  <entry><ind>1.0</ind><dep>20.0</dep></entry>
-		  <entry><ind>0.0</ind><dep>0.0</dep></entry>
-		  <entry><ind>-1.0</ind><dep>-10.0</dep></entry>
+			<entry>
+				<ind>1.0</ind>
+				<dep>20.0</dep>
+			</entry>
+			<entry>
+				<ind>0.0</ind>
+				<dep>0.0</dep>
+			</entry>
+			<entry>
+				<ind>-1.0</ind>
+				<dep>-10.0</dep>
+			</entry>
 		</interpolation>
 		<axis>
   			<x1-m>35.8685</x1-m>
@@ -816,18 +863,26 @@
 	</animation>
 	
 	
-<!-- WINGS -->
-<!-- Ailerons -->
-
+	<!-- WINGS -->
+	<!-- Ailerons -->
  	<animation>
 		<name>Aileron1</name>
 		<type>rotate</type>
 		<object-name>Aileron1</object-name>
 		<property>surface-positions/left-aileron-pos-norm</property>
 		<interpolation>
-		  <entry><ind>1.0</ind><dep>25.0</dep></entry>
-		  <entry><ind>0.0</ind><dep>0.0</dep></entry>
-		  <entry><ind>-1.0</ind><dep>-25.0</dep></entry>
+			<entry>
+				<ind>1.0</ind>
+				<dep>25.0</dep>
+			</entry>
+			<entry>
+				<ind>0.0</ind>
+				<dep>0.0</dep>
+			</entry>
+			<entry>
+				<ind>-1.0</ind>
+				<dep>-25.0</dep>
+			</entry>
 		</interpolation>
 		<axis>
 			<x1-m>4.16274</x1-m>
@@ -845,9 +900,18 @@
 		<object-name>Aileron2</object-name>
 		<property>surface-positions/left-aileron-pos-norm</property>
 		<interpolation>
-		  <entry><ind>1.0</ind><dep>25.0</dep></entry>
-		  <entry><ind>0.0</ind><dep>0.0</dep></entry>
-		  <entry><ind>-1.0</ind><dep>-25.0</dep></entry>
+			<entry>
+				<ind>1.0</ind>
+				<dep>25.0</dep>
+			</entry>
+			<entry>
+				<ind>0.0</ind>
+				<dep>0.0</dep>
+			</entry>
+			<entry>
+				<ind>-1.0</ind>
+				<dep>-25.0</dep>
+			</entry>
 		</interpolation>
 		<axis>
 			<x1-m>4.16274</x1-m>
@@ -859,10 +923,9 @@
 		</axis>
 	</animation>
 	
-<!-- WINGS -->
-<!-- Flaps -->
-<!-- Flaps 1-6 Left Side of Plane 7-12 Right Side-->
-	
+	<!-- WINGS -->
+	<!-- Flaps -->
+	<!-- Flaps 1-6 Left Side of Plane 7-12 Right Side-->
 	<animation>
 		<type>rotate</type>			<!-- Flap1 Rotation -->
 		<object-name>Flap1</object-name>
@@ -877,6 +940,7 @@
   			<z2-m>-2.86088</z2-m>
  		</axis>
 	</animation>
+
 	<animation>
 		<type>translate</type>		<!-- Flap1 Translate (move back in flap fairing) -->
 		<object-name>Flap1</object-name>
@@ -891,7 +955,7 @@
 			<x> 1.00</x>
 			<y> 0.00</y>
 			<z>-0.05</z>
-			</axis>
+		</axis>
 	</animation>
 
 	<animation>
@@ -909,6 +973,7 @@
   			<z2-m>-2.82007</z2-m>
  		</axis>
 	</animation>
+
 	<animation>
 		<type>translate</type>		<!-- Flap2 Translate (move back in flap fairing) -->
 		<object-name>Flap2.Outside</object-name>
@@ -924,7 +989,7 @@
 			<x> 1.00</x>
 			<y> 0.00</y>
 			<z>-0.05</z>
-			</axis>
+		</axis>
 	</animation>
 	
 	<animation>
@@ -941,6 +1006,7 @@
   			<z2-m>-2.54694</z2-m>
  		</axis>
 	</animation>
+
 	<animation>
 		<type>translate</type>		<!-- Flap3 Translate (move back in flap fairing) -->
 		<object-name>Flap3</object-name>
@@ -955,7 +1021,7 @@
 			<x> 1.00</x>
 			<y> 0.00</y>
 			<z>-0.05</z>
-			</axis>
+		</axis>
 	</animation>
 	
 	<animation>
@@ -972,6 +1038,7 @@
   			<z2-m>-2.23779</z2-m>
  		</axis>
 	</animation>
+
 	<animation>
 		<type>translate</type>		<!-- Flap4 Translate (move back in flap fairing) -->
 		<object-name>Flap4</object-name>
@@ -986,7 +1053,7 @@
 			<x> 1.00</x>
 			<y> 0.00</y>
 			<z>-0.05</z>
-			</axis>
+		</axis>
 	</animation>
 	
 	<animation>
@@ -1003,6 +1070,7 @@
   			<z2-m>-1.90284</z2-m>
  		</axis>
 	</animation>
+
 	<animation>
 		<type>translate</type>		<!-- Flap5 Translate (move back in flap fairing) -->
 		<object-name>Flap5</object-name>
@@ -1017,7 +1085,7 @@
 			<x> 1.00</x>
 			<y> 0.00</y>
 			<z>-0.05</z>
-			</axis>
+		</axis>
 	</animation>
 	
 	<animation>
@@ -1034,6 +1102,7 @@
   			<z2-m>-1.55581</z2-m>
  		</axis>
 	</animation>
+
 	<animation>
 		<type>translate</type>		<!-- Flap6 Translate (move back in flap fairing) -->
 		<object-name>Flap6</object-name>
@@ -1048,13 +1117,12 @@
 			<x> 1.00</x>
 			<y> 0.00</y>
 			<z>-0.05</z>
-			</axis>
+		</axis>
 	</animation>
 	
-<!-- Flaps -->
-<!-- Flaps 7-12 Right Side of Plane -->
-
-<animation>
+	<!-- Flaps -->
+	<!-- Flaps 7-12 Right Side of Plane -->
+	<animation>
 		<type>rotate</type>			<!-- Flap7 Rotation -->
 		<object-name>Flap7</object-name>
 		<property>surface-positions/flap-pos-norm</property>
@@ -1068,6 +1136,7 @@
   			<z2-m>-1.55581</z2-m>
  		</axis>
 	</animation>
+
 	<animation>
 		<type>translate</type>		<!-- Flap7 Translate (move back in flap fairing) -->
 		<object-name>Flap7</object-name>
@@ -1082,7 +1151,7 @@
 			<x> 1.00</x>
 			<y> 0.00</y>
 			<z>-0.05</z>
-			</axis>
+		</axis>
 	</animation>
 	
 	<animation>
@@ -1099,6 +1168,7 @@
   			<z2-m>-1.90284</z2-m>
  		</axis>
 	</animation>
+
 	<animation>
 		<type>translate</type>		<!-- Flap8 Translate (move back in flap fairing) -->
 		<object-name>Flap8</object-name>
@@ -1113,7 +1183,7 @@
 			<x> 1.00</x>
 			<y> 0.00</y>
 			<z>-0.05</z>
-			</axis>
+		</axis>
 	</animation>
 	
 	<animation>
@@ -1130,6 +1200,7 @@
   			<z2-m>-2.23779</z2-m>
  		</axis>
 	</animation>
+
 	<animation>
 		<type>translate</type>		<!-- Flap9 Translate (move back in flap fairing) -->
 		<object-name>Flap9</object-name>
@@ -1144,7 +1215,7 @@
 			<x> 1.00</x>
 			<y> 0.00</y>
 			<z>-0.05</z>
-			</axis>
+		</axis>
 	</animation>
 	
 	<animation>
@@ -1161,6 +1232,7 @@
   			<z2-m>-2.54694</z2-m>
  		</axis>
 	</animation>
+
 	<animation>
 		<type>translate</type>		<!-- Flap10 Translate (move back in flap fairing) -->
 		<object-name>Flap10</object-name>
@@ -1175,7 +1247,7 @@
 			<x> 1.00</x>
 			<y> 0.00</y>
 			<z>-0.05</z>
-			</axis>
+		</axis>
 	</animation>
 	
 	<animation>
@@ -1193,6 +1265,7 @@
   			<z2-m>-2.82007</z2-m>
  		</axis>
 	</animation>
+
 	<animation>
 		<type>translate</type>		<!-- Flap11 Translate (move back in flap fairing) -->
 		<object-name>Flap11.Outside</object-name>
@@ -1208,7 +1281,7 @@
 			<x> 1.00</x>
 			<y> 0.00</y>
 			<z>-0.05</z>
-			</axis>
+		</axis>
 	</animation>
 	
 	<animation>
@@ -1225,6 +1298,7 @@
   			<z2-m>-3.11975</z2-m>
  		</axis>
 	</animation>
+
 	<animation>
 		<type>translate</type>		<!-- Flap12 Translate (move back in flap fairing) -->
 		<object-name>Flap12</object-name>
@@ -1239,22 +1313,221 @@
 			<x> 1.00</x>
 			<y> 0.00</y>
 			<z>-0.05</z>
-			</axis>
+		</axis>
+	</animation>
+
+ 
+	<!-- ############ -->
+	<!--  Speedbrakes -->
+	<!-- ############ -->
+
+	<animation>
+		<type>rotate</type>			<!-- Spoiler1 Rotation -->
+		<object-name>Spoiler1</object-name>
+		<property>fdm/jsbsim/fcs/speedbrake-pos-norm</property>
+		<factor>45</factor>
+ 		<axis>
+  			<x1-m>1.92074</x1-m>
+  			<y1-m>-24.8737</y1-m>
+  			<z1-m>-3.11976</z1-m>
+  			<x2-m>1.16931</x2-m>
+  			<y2-m>-22.3041</y2-m>
+  			<z2-m>-2.86088</z2-m>
+ 		</axis>
+	</animation>
+
+	<animation>
+		<type>rotate</type>			<!-- Spoiler2 Rotation -->
+		<object-name>Spoiler2.Outside</object-name>
+		<object-name>Spoiler2.Inside</object-name>
+		<property>fdm/jsbsim/fcs/speedbrake-pos-norm</property>
+		<factor>45</factor>
+ 		<axis>
+  			<x1-m>0.34342</x1-m>
+  			<y1-m>-19.4702</y1-m>
+  			<z1-m>-2.58418</z1-m>
+  			<x2-m>1.02753</x2-m>
+  			<y2-m>-21.896</y2-m>
+  			<z2-m>-2.82007</z2-m>
+ 		</axis>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>			<!-- Spoiler3 Rotation -->
+		<object-name>Spoiler3</object-name>
+		<property>fdm/jsbsim/fcs/speedbrake-pos-norm</property>
+		<factor>45</factor>
+ 		<axis>
+  			<x1-m>-0.656179</x1-m>
+  			<y1-m>-16.1444</y1-m>
+  			<z1-m>-2.27133</z1-m>
+  			<x2-m>0.19397</x2-m>
+  			<y2-m>-19.068</y2-m>
+  			<z2-m>-2.54694</z2-m>
+ 		</axis>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>			<!-- Spoiler4 Rotation -->
+		<object-name>Spoiler4</object-name>
+		<property>fdm/jsbsim/fcs/speedbrake-pos-norm</property>
+		<factor>45</factor>
+ 		<axis>
+  			<x1-m>-1.64033</x1-m>
+  			<y1-m>-12.6017</y1-m>
+  			<z1-m>-1.93859</z1-m>
+  			<x2-m>-0.97902</x2-m>
+  			<y2-m>-15.7418</y2-m>
+  			<z2-m>-2.23779</z2-m>
+ 		</axis>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>			<!-- Spoiler5 Rotation -->
+		<object-name>Spoiler5</object-name>
+		<property>fdm/jsbsim/fcs/speedbrake-pos-norm</property>
+		<factor>45</factor>
+ 		<axis>
+  			<x1-m>-2.65251</x1-m>
+  			<y1-m>-8.5735</y1-m>
+  			<z1-m>-1.59471</z1-m>
+  			<x2-m>-2.03315</x2-m>
+  			<y2-m>-12.1753</y2-m>
+  			<z2-m>-1.90284</z2-m>
+ 		</axis>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>			<!-- Spoiler6 Rotation -->
+		<object-name>Spoiler6</object-name>
+		<property>fdm/jsbsim/fcs/speedbrake-pos-norm</property>
+		<factor>45</factor>
+ 		<axis>
+  			<x1-m>-3.35777</x1-m>
+  			<y1-m>-4.57774</y1-m>
+  			<z1-m>-1.27475</z1-m>
+  			<x2-m>-2.7411</x2-m>
+  			<y2-m>-8.08734</y2-m>
+  			<z2-m>-1.55581</z2-m>
+ 		</axis>
+	</animation>
+	
+	<!-- Flaps -->
+	<!-- Flaps 7-12 Right Side of Plane -->
+	<animation>
+		<type>rotate</type>			<!-- Spoiler7 Rotation -->
+		<object-name>Spoiler7</object-name>
+		<property>fdm/jsbsim/fcs/speedbrake-pos-norm</property>
+		<factor>-45</factor>
+ 		<axis>
+  			<x1-m>-3.35777</x1-m>
+  			<y1-m>4.57777</y1-m>
+  			<z1-m>-1.27475</z1-m>
+  			<x2-m>-2.7411</x2-m>
+  			<y2-m>8.08727</y2-m>
+  			<z2-m>-1.55581</z2-m>
+ 		</axis>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>			<!-- Spoiler8 Rotation -->
+		<object-name>Spoiler8</object-name>
+		<property>fdm/jsbsim/fcs/speedbrake-pos-norm</property>
+		<factor>-45</factor>
+ 		<axis>
+  			<x1-m>-2.65251</x1-m>
+  			<y1-m>8.57355</y1-m>
+  			<z1-m>-1.59471</z1-m>
+  			<x2-m>-2.03315</x2-m>
+  			<y2-m>12.1753</y2-m>
+  			<z2-m>-1.90284</z2-m>
+ 		</axis>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>			<!-- Spoiler9 Rotation -->
+		<object-name>Spoiler9</object-name>
+		<property>fdm/jsbsim/fcs/speedbrake-pos-norm</property>
+		<factor>-45</factor>
+ 		<axis>
+  			<x1-m>-1.64033</x1-m>
+  			<y1-m>12.6018</y1-m>
+  			<z1-m>-1.93859</z1-m>
+  			<x2-m>-0.97902</x2-m>
+  			<y2-m>15.7418</y2-m>
+  			<z2-m>-2.23779</z2-m>
+ 		</axis>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>			<!-- Spoiler10 Rotation -->
+		<object-name>Spoiler10</object-name>
+		<property>fdm/jsbsim/fcs/speedbrake-pos-norm</property>
+		<factor>-45</factor>
+ 		<axis>
+  			<x1-m>-0.656179</x1-m>
+  			<y1-m>16.1444</y1-m>
+  			<z1-m>-2.27133</z1-m>
+  			<x2-m>0.19397</x2-m>
+  			<y2-m>19.0679</y2-m>
+  			<z2-m>-2.54694</z2-m>
+ 		</axis>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>			<!-- Spoiler11 Rotation -->
+		<object-name>Spoiler11.Outside</object-name>
+		<object-name>Spoiler11.Inside</object-name>
+		<property>fdm/jsbsim/fcs/speedbrake-pos-norm</property>
+		<factor>-45</factor>
+		<factor>30</factor>
+ 		<axis>
+  			<x1-m>0.34342</x1-m>
+  			<y1-m>19.4703</y1-m>
+  			<z1-m>-2.58418</z1-m>
+  			<x2-m>1.02724</x2-m>
+  			<y2-m>21.8937</y2-m>
+  			<z2-m>-2.82007</z2-m>
+ 		</axis>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>			<!-- Spoiler12 Rotation -->
+		<object-name>Spoiler12</object-name>
+		<property>fdm/jsbsim/fcs/speedbrake-pos-norm</property>
+		<factor>-45</factor>
+ 		<axis>
+  			<x1-m>1.16931</x1-m>
+  			<y1-m>22.3041</y1-m>
+  			<z1-m>-2.86088</z1-m>
+  			<x2-m>1.91651</x2-m>
+  			<y2-m>24.8695</y2-m>
+  			<z2-m>-3.11975</z2-m>
+ 		</axis>
 	</animation>
 
 	<!-- Landing Gear Doors -->
 	<!-- ********************  NoseGear Doors  ******************** -->
 	<!-- LEFT -->
-   <animation>
-       <type>rotate</type>
-        <object-name>NoseGear.Door1</object-name>
+	<animation>
+		<type>rotate</type>
+		<object-name>NoseGear.Door1</object-name>
 		<object-name>NoseGear.Door2</object-name>
-        <property>gear/gear/position-norm</property>
-        <interpolation>
-            <entry><ind>0.2</ind><dep>0.0</dep></entry>
-			<entry><ind>0.5</ind><dep>-175.0</dep></entry>
-			<entry><ind>1.0</ind><dep>-175.0</dep></entry>
-        </interpolation>
+		<property>gear/gear/position-norm</property>
+		<interpolation>
+			<entry>
+				<ind>0.2</ind>
+				<dep>0.0</dep>
+			</entry>
+			<entry>
+				<ind>0.5</ind>
+				<dep>-175.0</dep>
+			</entry>
+			<entry>
+				<ind>1.0</ind>
+				<dep>-175.0</dep>
+			</entry>
+		</interpolation>
 		<axis>
   			<x1-m>-25.6006</x1-m>
   			<y1-m>-1.81265</y1-m>
@@ -1263,15 +1536,25 @@
   			<y2-m>-1.81265</y2-m>
   			<z2-m>-8.41599</z2-m>
  		</axis>
-    </animation>
-    <animation>
-        <type>rotate</type>
-        <object-name>NoseGear.Door1</object-name>
-        <property>gear/gear/position-norm</property>
-       <interpolation>
-			<entry><ind>0.2</ind><dep>0.0</dep></entry>
-			<entry><ind>0.5</ind><dep>152.0</dep></entry>
-			<entry><ind>1.0</ind><dep>152.0</dep></entry>
+	</animation>
+
+	<animation>
+		<type>rotate</type>
+		<object-name>NoseGear.Door1</object-name>
+		<property>gear/gear/position-norm</property>
+		<interpolation>
+			<entry>
+				<ind>0.2</ind>
+				<dep>0.0</dep>
+			</entry>
+			<entry>
+				<ind>0.5</ind>
+				<dep>152.0</dep>
+			</entry>
+			<entry>
+				<ind>1.0</ind>
+				<dep>152.0</dep>
+			</entry>
 		</interpolation>
 		<axis>
   			<x1-m>-25.595</x1-m>
@@ -1281,18 +1564,28 @@
   			<y2-m>-1.0805</y2-m>
   			<z2-m>-8.69852</z2-m>
  		</axis>
-    </animation>
+	</animation>
+
 	<!-- RIGHT -->
 	<animation>
-       <type>rotate</type>
-        <object-name>NoseGear.Door3</object-name>
+		<type>rotate</type>
+		<object-name>NoseGear.Door3</object-name>
 		<object-name>NoseGear.Door4</object-name>
-        <property>gear/gear/position-norm</property>
-        <interpolation>
-            <entry><ind>0.2</ind><dep>0.0</dep></entry>
-			<entry><ind>0.5</ind><dep>175.0</dep></entry>
-			<entry><ind>1.0</ind><dep>175.0</dep></entry>
-        </interpolation>
+		<property>gear/gear/position-norm</property>
+		<interpolation>
+			<entry>
+				<ind>0.2</ind>
+				<dep>0.0</dep>
+			</entry>
+			<entry>
+				<ind>0.5</ind>
+				<dep>175.0</dep>
+			</entry>
+			<entry>
+				<ind>1.0</ind>
+				<dep>175.0</dep>
+			</entry>
+		</interpolation>
 		<axis>
   			<x1-m>-25.6006</x1-m>
   			<y1-m>1.81265</y1-m>
@@ -1301,15 +1594,25 @@
   			<y2-m>1.81265</y2-m>
   			<z2-m>-8.37805</z2-m>
  		</axis>
-    </animation>
-    <animation>
-        <type>rotate</type>
-        <object-name>NoseGear.Door3</object-name>
-        <property>gear/gear/position-norm</property>
-       <interpolation>
-			<entry><ind>0.2</ind><dep>0.0</dep></entry>
-			<entry><ind>0.5</ind><dep>-152.0</dep></entry>
-			<entry><ind>1.0</ind><dep>-152.0</dep></entry>
+	</animation>
+
+	<animation>
+		<type>rotate</type>
+		<object-name>NoseGear.Door3</object-name>
+		<property>gear/gear/position-norm</property>
+		<interpolation>
+			<entry>
+				<ind>0.2</ind>
+				<dep>0.0</dep>
+			</entry>
+			<entry>
+				<ind>0.5</ind>
+				<dep>-152.0</dep>
+			</entry>
+			<entry>
+				<ind>1.0</ind>
+				<dep>-152.0</dep>
+			</entry>
 		</interpolation>
 		<axis>
   			<x1-m>-25.595</x1-m>
@@ -1319,7 +1622,7 @@
   			<y2-m>1.0805</y2-m>
   			<z2-m>-8.69852</z2-m>
  		</axis>
-    </animation>
+	</animation>
     	
 	<!-- Main Gear Doors Left/Right -->
 	<!-- ********************  Left Main Front Landing Gear Doors  ******************** -->
@@ -1333,9 +1636,18 @@
 		<object-name>Gear1.Door1</object-name>
 		<property>gear/gear[0]/position-norm</property>
 		<interpolation>
-			<entry><ind>0.0</ind><dep>0.0</dep></entry> 
-			<entry><ind>0.2</ind><dep>-170.0</dep></entry> 
-			<entry><ind>1.0</ind><dep>-170.0</dep></entry>
+			<entry>
+				<ind>0.0</ind>
+				<dep>0.0</dep>
+			</entry> 
+			<entry>
+				<ind>0.2</ind>
+				<dep>-170.0</dep>
+			</entry> 
+			<entry>
+				<ind>1.0</ind>
+				<dep>-170.0</dep>
+			</entry>
 		</interpolation>
 		<axis> 
 			<x1-m>-8.28264</x1-m>
@@ -1346,6 +1658,7 @@
 			<z2-m>-7.58218</z2-m>
 		</axis>
 	</animation>
+
 	<!-- Rotates door at bottom point of top struts in opposite direction -->
 	<animation>
 		<type>rotate</type>
@@ -1354,9 +1667,18 @@
 		<object-name>Gear1.DrStrut4</object-name>
 		<property>gear/gear[0]/position-norm</property>
 		<interpolation>
-			<entry><ind>0.0</ind><dep>0.0</dep></entry> 
-			<entry><ind>0.2</ind><dep>75.0</dep></entry>
-			<entry><ind>1.0</ind><dep>75.0</dep></entry>
+			<entry>
+				<ind>0.0</ind>
+				<dep>0.0</dep>
+			</entry> 
+			<entry>
+				<ind>0.2</ind>
+				<dep>75.0</dep>
+			</entry>
+			<entry>
+				<ind>1.0</ind>
+				<dep>75.0</dep>
+			</entry>
 		</interpolation>
 		<axis>
 			<x1-m>-8.28264</x1-m>
@@ -1367,6 +1689,7 @@
 			<z2-m>-8.58165</z2-m>
 		</axis>
 	</animation>
+
 	<!-- Rotates bottom struts to be parallel with ground -->
 	<animation>
 		<type>rotate</type>
@@ -1374,9 +1697,18 @@
 		<object-name>Gear1.DrStrut4</object-name>
 		<property>gear/gear[0]/position-norm</property>
 		<interpolation>
-			<entry><ind>0.0</ind><dep>0.0</dep></entry> 
-			<entry><ind>0.2</ind><dep>-60.0</dep></entry>
-			<entry><ind>1.0</ind><dep>-60.0</dep></entry>
+			<entry>
+				<ind>0.0</ind>
+				<dep>0.0</dep>
+			</entry> 
+			<entry>
+				<ind>0.2</ind>
+				<dep>-60.0</dep>
+			</entry>
+			<entry>
+				<ind>1.0</ind>
+				<dep>-60.0</dep>
+			</entry>
 		</interpolation>
 		<axis>
 			<x1-m>-8.2527</x1-m>
@@ -1387,17 +1719,33 @@
 			<z2-m>-8.68652</z2-m>
 		</axis>
 	</animation>
+
 	<!-- Gear secondary door animation -->
 	<animation>
 		<type>rotate</type>
 		<object-name>Gear1.Door2</object-name>
 		<property>gear/gear[0]/position-norm</property>
 		<interpolation>
-			<entry><ind>0.0</ind><dep>0.0</dep></entry>
-			<entry><ind>0.1</ind><dep>90.0</dep></entry>
-			<entry><ind>0.5</ind><dep>90.0</dep></entry>
-			<entry><ind>0.6</ind><dep>0.0</dep></entry>
-			<entry><ind>1.0</ind><dep>0.0</dep></entry>
+			<entry>
+				<ind>0.0</ind>
+				<dep>0.0</dep>
+			</entry>
+			<entry>
+				<ind>0.1</ind>
+				<dep>90.0</dep>
+			</entry>
+			<entry>
+				<ind>0.5</ind>
+				<dep>90.0</dep>
+			</entry>
+			<entry>
+				<ind>0.6</ind>
+				<dep>0.0</dep>
+			</entry>
+			<entry>
+				<ind>1.0</ind>
+				<dep>0.0</dep>
+			</entry>
 		</interpolation>
 		<axis>
 			<x1-m>-8.28522</x1-m>
@@ -1420,9 +1768,18 @@
 		<object-name>Gear2.Door1</object-name>
 		<property>gear/gear[0]/position-norm</property>
 		<interpolation>
-			<entry><ind>0.0</ind><dep>0.0</dep></entry> 
-			<entry><ind>0.2</ind><dep>-170.0</dep></entry> 
-			<entry><ind>1.0</ind><dep>-170.0</dep></entry>
+			<entry>
+				<ind>0.0</ind>
+				<dep>0.0</dep>
+			</entry> 
+			<entry>
+				<ind>0.2</ind>
+				<dep>-170.0</dep>
+			</entry> 
+			<entry>
+				<ind>1.0</ind>
+				<dep>-170.0</dep>
+			</entry>
 		</interpolation>
 		<axis> 
 			<x1-m>-3.14117</x1-m>
@@ -1433,6 +1790,7 @@
 			<z2-m>-7.58217</z2-m>
 		</axis>
 	</animation>
+
 	<!-- Rotates door at bottom point of top struts in opposite direction -->
 	<animation>
 		<type>rotate</type>
@@ -1441,9 +1799,18 @@
 		<object-name>Gear2.DrStrut4</object-name>
 		<property>gear/gear[0]/position-norm</property>
 		<interpolation>
-			<entry><ind>0.0</ind><dep>0.0</dep></entry> 
-			<entry><ind>0.2</ind><dep>75.0</dep></entry>
-			<entry><ind>1.0</ind><dep>75.0</dep></entry>
+			<entry>
+				<ind>0.0</ind>
+				<dep>0.0</dep>
+			</entry> 
+			<entry>
+				<ind>0.2</ind>
+				<dep>75.0</dep>
+			</entry>
+			<entry>
+				<ind>1.0</ind>
+				<dep>75.0</dep>
+			</entry>
 		</interpolation>
 		<axis>
 			<x1-m>-3.14117</x1-m>
@@ -1454,6 +1821,7 @@
 			<z2-m>-8.58165</z2-m>
 		</axis>
 	</animation>
+
 	<!-- Rotates bottom struts to be parallel with ground -->
 	<animation>
 		<type>rotate</type>
@@ -1461,9 +1829,18 @@
 		<object-name>Gear2.DrStrut4</object-name>
 		<property>gear/gear[0]/position-norm</property>
 		<interpolation>
-			<entry><ind>0.0</ind><dep>0.0</dep></entry> 
-			<entry><ind>0.2</ind><dep>-60.0</dep></entry>
-			<entry><ind>1.0</ind><dep>-60.0</dep></entry>
+			<entry>
+				<ind>0.0</ind>
+				<dep>0.0</dep>
+			</entry> 
+			<entry>
+				<ind>0.2</ind>
+				<dep>-60.0</dep>
+			</entry>
+			<entry>
+				<ind>1.0</ind>
+				<dep>-60.0</dep>
+			</entry>
 		</interpolation>
 		<axis>
 			<x1-m>-3.11123</x1-m>
@@ -1474,17 +1851,33 @@
 			<z2-m>-8.68652</z2-m>
 		</axis>
 	</animation>
+
 	<!-- Gear secondary door animation -->
 	<animation>
 		<type>rotate</type>
 		<object-name>Gear2.Door2</object-name>
 		<property>gear/gear[0]/position-norm</property>
 		<interpolation>
-			<entry><ind>0.0</ind><dep>0.0</dep></entry>
-			<entry><ind>0.1</ind><dep>90.0</dep></entry>
-			<entry><ind>0.5</ind><dep>90.0</dep></entry>
-			<entry><ind>0.6</ind><dep>0.0</dep></entry>
-			<entry><ind>1.0</ind><dep>0.0</dep></entry>
+			<entry>
+				<ind>0.0</ind>
+				<dep>0.0</dep>
+			</entry>
+			<entry>
+				<ind>0.1</ind>
+				<dep>90.0</dep>
+			</entry>
+			<entry>
+				<ind>0.5</ind>
+				<dep>90.0</dep>
+			</entry>
+			<entry>
+				<ind>0.6</ind>
+				<dep>0.0</dep>
+			</entry>
+			<entry>
+				<ind>1.0</ind>
+				<dep>0.0</dep>
+			</entry>
 		</interpolation>
 		<axis>
 			<x1-m>-3.14576</x1-m>
@@ -1507,9 +1900,18 @@
 		<object-name>Gear3.Door1</object-name>
 		<property>gear/gear[0]/position-norm</property>
 		<interpolation>
-			<entry><ind>0.0</ind><dep>0.0</dep></entry> 
-			<entry><ind>0.2</ind><dep>170.0</dep></entry> 
-			<entry><ind>1.0</ind><dep>170.0</dep></entry>
+			<entry>
+				<ind>0.0</ind>
+				<dep>0.0</dep>
+			</entry> 
+			<entry>
+				<ind>0.2</ind>
+				<dep>170.0</dep>
+			</entry> 
+			<entry>
+				<ind>1.0</ind>
+				<dep>170.0</dep>
+			</entry>
 		</interpolation>
 		<axis> 
 			<x1-m>-8.28264</x1-m>
@@ -1520,6 +1922,7 @@
 			<z2-m>-7.58218</z2-m>
 		</axis>
 	</animation>
+
 	<!-- Rotates door at bottom point of top struts in opposite direction -->
 	<animation>
 		<type>rotate</type>
@@ -1528,9 +1931,18 @@
 		<object-name>Gear3.DrStrut4</object-name>
 		<property>gear/gear[0]/position-norm</property>
 		<interpolation>
-			<entry><ind>0.0</ind><dep>0.0</dep></entry> 
-			<entry><ind>0.2</ind><dep>-75.0</dep></entry>
-			<entry><ind>1.0</ind><dep>-75.0</dep></entry>
+			<entry>
+				<ind>0.0</ind>
+				<dep>0.0</dep>
+			</entry> 
+			<entry>
+				<ind>0.2</ind>
+				<dep>-75.0</dep>
+			</entry>
+			<entry>
+				<ind>1.0</ind>
+				<dep>-75.0</dep>
+			</entry>
 		</interpolation>
 		<axis>
 			<x1-m>-8.28264</x1-m>
@@ -1541,6 +1953,7 @@
 			<z2-m>-8.58165</z2-m>
 		</axis>
 	</animation>
+
 	<!-- Rotates bottom struts to be parallel with ground -->
 	<animation>
 		<type>rotate</type>
@@ -1548,9 +1961,18 @@
 		<object-name>Gear3.DrStrut4</object-name>
 		<property>gear/gear[0]/position-norm</property>
 		<interpolation>
-			<entry><ind>0.0</ind><dep>0.0</dep></entry> 
-			<entry><ind>0.2</ind><dep>60.0</dep></entry>
-			<entry><ind>1.0</ind><dep>60.0</dep></entry>
+			<entry>
+				<ind>0.0</ind>
+				<dep>0.0</dep>
+			</entry> 
+			<entry>
+				<ind>0.2</ind>
+				<dep>60.0</dep>
+			</entry>
+			<entry>
+				<ind>1.0</ind>
+				<dep>60.0</dep>
+			</entry>
 		</interpolation>
 		<axis>
 			<x1-m>-8.2527</x1-m>
@@ -1561,17 +1983,33 @@
 			<z2-m>-8.68652</z2-m>
 		</axis>
 	</animation>
+
 	<!-- Gear secondary door animation -->
 	<animation>
 		<type>rotate</type>
 		<object-name>Gear3.Door2</object-name>
 		<property>gear/gear[0]/position-norm</property>
 		<interpolation>
-			<entry><ind>0.0</ind><dep>0.0</dep></entry>
-			<entry><ind>0.1</ind><dep>-90.0</dep></entry>
-			<entry><ind>0.5</ind><dep>-90.0</dep></entry>
-			<entry><ind>0.6</ind><dep>0.0</dep></entry>
-			<entry><ind>1.0</ind><dep>0.0</dep></entry>
+			<entry>
+				<ind>0.0</ind>
+				<dep>0.0</dep>
+			</entry>
+			<entry>
+				<ind>0.1</ind>
+				<dep>-90.0</dep>
+			</entry>
+			<entry>
+				<ind>0.5</ind>
+				<dep>-90.0</dep>
+			</entry>
+			<entry>
+				<ind>0.6</ind>
+				<dep>0.0</dep>
+			</entry>
+			<entry>
+				<ind>1.0</ind>
+				<dep>0.0</dep>
+			</entry>
 		</interpolation>
 		<axis>
 			<x1-m>-8.28522</x1-m>
@@ -1594,9 +2032,18 @@
 		<object-name>Gear4.Door1</object-name>
 		<property>gear/gear[0]/position-norm</property>
 		<interpolation>
-			<entry><ind>0.0</ind><dep>0.0</dep></entry> 
-			<entry><ind>0.2</ind><dep>170.0</dep></entry> 
-			<entry><ind>1.0</ind><dep>170.0</dep></entry>
+			<entry>
+				<ind>0.0</ind>
+				<dep>0.0</dep>
+			</entry> 
+			<entry>
+				<ind>0.2</ind>
+				<dep>170.0</dep>
+			</entry> 
+			<entry>
+				<ind>1.0</ind>
+				<dep>170.0</dep>
+			</entry>
 		</interpolation>
 		<axis> 
 			<x1-m>-3.14117</x1-m>
@@ -1607,6 +2054,7 @@
 			<z2-m>-7.58217</z2-m>
 		</axis>
 	</animation>
+
 	<!-- Rotates door at bottom point of top struts in opposite direction -->
 	<animation>
 		<type>rotate</type>
@@ -1615,9 +2063,18 @@
 		<object-name>Gear4.DrStrut4</object-name>
 		<property>gear/gear[0]/position-norm</property>
 		<interpolation>
-			<entry><ind>0.0</ind><dep>0.0</dep></entry> 
-			<entry><ind>0.2</ind><dep>-75.0</dep></entry>
-			<entry><ind>1.0</ind><dep>-75.0</dep></entry>
+			<entry>
+				<ind>0.0</ind>
+				<dep>0.0</dep>
+			</entry> 
+			<entry>
+				<ind>0.2</ind>
+				<dep>-75.0</dep>
+			</entry>
+			<entry>
+				<ind>1.0</ind>
+				<dep>-75.0</dep>
+			</entry>
 		</interpolation>
 		<axis>
 			<x1-m>-3.14117</x1-m>
@@ -1628,6 +2085,7 @@
 			<z2-m>-8.58165</z2-m>
 		</axis>
 	</animation>
+
 	<!-- Rotates bottom struts to be parallel with ground -->
 	<animation>
 		<type>rotate</type>
@@ -1635,9 +2093,18 @@
 		<object-name>Gear4.DrStrut4</object-name>
 		<property>gear/gear[0]/position-norm</property>
 		<interpolation>
-			<entry><ind>0.0</ind><dep>0.0</dep></entry> 
-			<entry><ind>0.2</ind><dep>60.0</dep></entry>
-			<entry><ind>1.0</ind><dep>60.0</dep></entry>
+			<entry>
+				<ind>0.0</ind>
+				<dep>0.0</dep>
+			</entry> 
+			<entry>
+				<ind>0.2</ind>
+				<dep>60.0</dep>
+			</entry>
+			<entry>
+				<ind>1.0</ind>
+				<dep>60.0</dep>
+			</entry>
 		</interpolation>
 		<axis>
 			<x1-m>-3.11123</x1-m>
@@ -1648,17 +2115,33 @@
 			<z2-m>-8.68652</z2-m>
 		</axis>
 	</animation>
+
 	<!-- Gear secondary door animation -->
 	<animation>
 		<type>rotate</type>
 		<object-name>Gear4.Door2</object-name>
 		<property>gear/gear[0]/position-norm</property>
 		<interpolation>
-			<entry><ind>0.0</ind><dep>0.0</dep></entry>
-			<entry><ind>0.1</ind><dep>-90.0</dep></entry>
-			<entry><ind>0.5</ind><dep>-90.0</dep></entry>
-			<entry><ind>0.6</ind><dep>0.0</dep></entry>
-			<entry><ind>1.0</ind><dep>0.0</dep></entry>
+			<entry>
+				<ind>0.0</ind>
+				<dep>0.0</dep>
+			</entry>
+			<entry>
+				<ind>0.1</ind>
+				<dep>-90.0</dep>
+			</entry>
+			<entry>
+				<ind>0.5</ind>
+				<dep>-90.0</dep>
+			</entry>
+			<entry>
+				<ind>0.6</ind>
+				<dep>0.0</dep>
+			</entry>
+			<entry>
+				<ind>1.0</ind>
+				<dep>0.0</dep>
+			</entry>
 		</interpolation>
 		<axis>
 			<x1-m>-3.14576</x1-m>
@@ -1670,16 +2153,21 @@
 		</axis>
 	</animation>
 
-<!-- CARGO DOORS & OTHER DOORS  -->
-
+	<!-- CARGO DOORS & OTHER DOORS  -->
 	<!-- Crewdoor -->
 	<animation>
 		<type>rotate</type>
 		<object-name>CrewDoor</object-name>
 		<property>instrumentation/doors/crewdoor/position-norm</property> 
 		<interpolation>
-		  <entry><ind> 0 </ind><dep> 0 </dep></entry>
-		  <entry><ind> 1 </ind><dep> 140 </dep></entry>
+			<entry>
+				<ind> 0 </ind>
+				<dep> 0 </dep>
+			</entry>
+			<entry>
+				<ind> 1 </ind>
+				<dep> 140 </dep>
+			</entry>
 		</interpolation> 
 		<axis>
   			<x1-m>-28.4456</x1-m>
@@ -1697,8 +2185,14 @@
 		<object-name>CargoDoor.Front</object-name>
 		<property>instrumentation/doors/cargodoorfront/position-norm</property> 
 		<interpolation>
-		  <entry><ind> 0 </ind><dep> 0 </dep></entry>
-		  <entry><ind> 1 </ind><dep> -64 </dep></entry>
+			<entry>
+				<ind> 0 </ind>
+				<dep> 0 </dep>
+			</entry>
+			<entry>
+				<ind> 1 </ind>
+				<dep> -64 </dep>
+			</entry>
 		</interpolation> 
 		<axis>
   			<x1-m>-27.6066</x1-m>
@@ -1716,8 +2210,14 @@
 		<object-name>CargoDoor.Rear1</object-name>
 		<property>instrumentation/doors/cargodoorrear/position-norm</property> 
 		<interpolation>
-		  <entry><ind> 0 </ind><dep> 0 </dep></entry>
-		  <entry><ind> 1 </ind><dep> -14 </dep></entry>
+			<entry>
+				<ind> 0 </ind>
+				<dep> 0 </dep>
+			</entry>
+			<entry>
+				<ind> 1 </ind>
+				<dep> -14 </dep>
+			</entry>
 		</interpolation> 
 		<axis>
   			<x1-m>27.4009</x1-m>
@@ -1728,27 +2228,41 @@
   			<z2-m>-3.1409</z2-m>
  		</axis>
 	</animation>
+
 	<animation>
 		<type>translate</type>		
 		<object-name>CargoDoor.Rear1</object-name>
 		<property>instrumentation/doors/cargodoorrear/position-norm</property> 
 		<interpolation>
-			<entry><ind>0.0</ind><dep>0.0</dep></entry>
-			<entry><ind>1</ind><dep>0.50</dep></entry>
+			<entry>
+				<ind>0.0</ind>
+				<dep>0.0</dep>
+			</entry>
+			<entry>
+				<ind>1</ind>
+				<dep>0.50</dep>
+			</entry>
 		</interpolation>
 		<axis>
 			<x> 1.00</x>
 			<y> 0.00</y>
 			<z> 0.00</z>
-			</axis>
+		</axis>
 	</animation>
+
 	<animation>
 		<type>rotate</type>
 		<object-name>CargoDoor.Rear2</object-name>
 		<property>instrumentation/doors/cargodoorrear/position-norm</property> 
 		<interpolation>
-		  <entry><ind> 0 </ind><dep> 0 </dep></entry>
-		  <entry><ind> 1 </ind><dep> -90 </dep></entry>
+			<entry>
+				<ind> 0 </ind>
+				<dep> 0 </dep>
+			</entry>
+			<entry>
+				<ind> 1 </ind>
+				<dep> -90 </dep>
+			</entry>
 		</interpolation> 
 		<axis>
   			<x1-m>13.4164</x1-m>
@@ -1759,6 +2273,7 @@
   			<z2-m>-3.14093</z2-m>
  		</axis>
 	</animation>
+
 	<animation>
 		<type>rotate</type>
 		<object-name>CargoDoor.Rear3</object-name>
@@ -1786,8 +2301,14 @@
 		<property>instrumentation/doors/cargorampfront/position-norm</property>
 		
 		<interpolation>
-		  <entry><ind>0.0</ind><dep>0.0</dep></entry>
-		  <entry><ind>1.0</ind><dep>-23</dep></entry>
+			<entry>
+				<ind>0.0</ind>
+				<dep>0.0</dep>
+			</entry>
+			<entry>
+				<ind>1.0</ind>
+				<dep>-23</dep>
+			</entry>
 		</interpolation> 
  		<axis>
   			<x1-m>-27.7871</x1-m>
@@ -1798,6 +2319,7 @@
   			<z2-m>-7.34443</z2-m>
  		</axis>
 	</animation>
+
 	<animation>
 		<type>rotate</type>
 		<object-name>Ramp1.Ramp</object-name>
@@ -1805,8 +2327,14 @@
 		<property>instrumentation/doors/cargorampfront/position-norm</property>
 			
 		<interpolation>
-		<entry><ind>0.0</ind><dep>0.0</dep></entry>
-		<entry><ind>1.0</ind><dep>-90.0</dep></entry>
+			<entry>
+				<ind>0.0</ind>
+				<dep>0.0</dep>
+			</entry>
+			<entry>
+				<ind>1.0</ind>
+				<dep>-90.0</dep>
+			</entry>
 		</interpolation> 
  		<axis>
   			<x1-m>-30.7529</x1-m>
@@ -1817,16 +2345,28 @@
   			<z2-m>-7.34104</z2-m>
  		</axis>
 	</animation>
+
 	<animation>
 		<type>rotate</type>
 		<object-name>Ramp1.Fingers</object-name>
 		<property>instrumentation/doors/cargorampfront/position-norm</property>
-				
 		<interpolation>
-			<entry><ind>0.0</ind><dep>0.0</dep></entry>
-			<entry><ind>0.3</ind><dep>0.0</dep></entry>
-			<entry><ind>0.7</ind><dep>-180.0</dep></entry>
-			<entry><ind>1.0</ind><dep>-180.0</dep></entry>
+			<entry>
+				<ind>0.0</ind>
+				<dep>0.0</dep>
+			</entry>
+			<entry>
+				<ind>0.3</ind>
+				<dep>0.0</dep>
+			</entry>
+			<entry>
+				<ind>0.7</ind>
+				<dep>-180.0</dep>
+			</entry>
+			<entry>
+				<ind>1.0</ind>
+				<dep>-180.0</dep>
+			</entry>
 		</interpolation> 
  		<axis>
   			<x1-m>-30.7554</x1-m>
@@ -1839,17 +2379,21 @@
 	</animation>
 	
 	<!-- Forward Cargo Ramp *****   Aircraft in Kneeled Position   *****  -->
-	
 	<animation>
 		<type>rotate</type>
 		<object-name>Ramp1</object-name>
 		<object-name>Ramp1.Ramp</object-name>
 		<object-name>Ramp1.Fingers</object-name>
 		<property>instrumentation/doors/rampfrontkneeled/position-norm</property>
-				
 		<interpolation>
-		  <entry><ind>0.0</ind><dep>0.0</dep></entry>
-		  <entry><ind>1.0</ind><dep>-15</dep></entry>
+			<entry>
+				<ind>0.0</ind>
+				<dep>0.0</dep>
+			</entry>
+			<entry>
+				<ind>1.0</ind>
+				<dep>-15</dep>
+			</entry>
 		</interpolation> 
  		<axis>
   			<x1-m>-27.7871</x1-m>
@@ -1860,15 +2404,21 @@
   			<z2-m>-7.34443</z2-m>
  		</axis>
 	</animation>
+
 	<animation>
 		<type>rotate</type>
 		<object-name>Ramp1.Ramp</object-name>
 		<object-name>Ramp1.Fingers</object-name>
 		<property>instrumentation/doors/rampfrontkneeled/position-norm</property>
-				
 		<interpolation>
-		<entry><ind>0.0</ind><dep>0.0</dep></entry>
-		<entry><ind>1.0</ind><dep>-90.0</dep></entry>
+			<entry>
+				<ind>0.0</ind>
+				<dep>0.0</dep>
+			</entry>
+			<entry>
+				<ind>1.0</ind>
+				<dep>-90.0</dep>
+			</entry>
 		</interpolation> 
  		<axis>
   			<x1-m>-30.7529</x1-m>
@@ -1879,16 +2429,29 @@
   			<z2-m>-7.34104</z2-m>
  		</axis>
 	</animation>
+
 	<animation>
 		<type>rotate</type>
 		<object-name>Ramp1.Fingers</object-name>
 		<property>instrumentation/doors/rampfrontkneeled/position-norm</property>
 				
 		<interpolation>
-			<entry><ind>0.0</ind><dep>0.0</dep></entry>
-			<entry><ind>0.3</ind><dep>0.0</dep></entry>
-			<entry><ind>0.7</ind><dep>-180.0</dep></entry>
-			<entry><ind>1.0</ind><dep>-180.0</dep></entry>
+			<entry>
+				<ind>0.0</ind>
+				<dep>0.0</dep>
+			</entry>
+			<entry>
+				<ind>0.3</ind>
+				<dep>0.0</dep>
+			</entry>
+			<entry>
+				<ind>0.7</ind>
+				<dep>-180.0</dep>
+			</entry>
+			<entry>
+				<ind>1.0</ind>
+				<dep>-180.0</dep>
+			</entry>
 		</interpolation> 
  		<axis>
   			<x1-m>-30.7554</x1-m>
@@ -1899,11 +2462,8 @@
   			<z2-m>-3.83238</z2-m>
  		</axis>
 	</animation>
-	
-	
-	
+		
 	<!-- Rear Cargo Ramp *****   Aircraft Position Normal   *****  -->
-	
 	<animation>
 		<type>rotate</type>
 		<object-name>Ramp2</object-name>
@@ -1915,10 +2475,15 @@
 		<object-name>Ramp2.Mount3</object-name>
 		<object-name>Ramp2.Tread3</object-name>
 		<property>instrumentation/doors/cargoramprear/position-norm</property>
-		
 		<interpolation>
-		<entry><ind>0.0</ind><dep>0.0</dep></entry>
-		<entry><ind>1.0</ind><dep>22.0</dep></entry>
+			<entry>
+				<ind>0.0</ind>
+				<dep>0.0</dep>
+			</entry>
+			<entry>
+				<ind>1.0</ind>
+				<dep>22.0</dep>
+			</entry>
 		</interpolation> 
  		<axis>
   			<x1-m>8.1722</x1-m>
@@ -1929,6 +2494,7 @@
   			<z2-m>-7.34214</z2-m>
  		</axis>
 	</animation>
+
 	<animation>
 		<type>rotate</type>
 		<object-name>Ramp2.Ramp</object-name>
@@ -1938,11 +2504,16 @@
 		<object-name>Ramp2.Tread2</object-name>
 		<object-name>Ramp2.Mount3</object-name>
 		<object-name>Ramp2.Tread3</object-name>
-		<property>instrumentation/doors/cargoramprear/position-norm</property>
-		
+		<property>instrumentation/doors/cargoramprear/position-norm</property>		
 		<interpolation>
-		<entry><ind>0.0</ind><dep>0.0</dep></entry>
-		<entry><ind>1.0</ind><dep>90.0</dep></entry>
+			<entry>
+				<ind>0.0</ind>
+				<dep>0.0</dep>
+			</entry>
+			<entry>
+				<ind>1.0</ind>
+				<dep>90.0</dep>
+			</entry>
 		</interpolation> 
  		<axis>
   			<x1-m>13.3866</x1-m>
@@ -1953,6 +2524,7 @@
   			<z2-m>-6.48326</z2-m>
  		</axis>
 	</animation>
+
 	<animation>
 		<type>rotate</type>
 		<object-name>Ramp2.Mount1</object-name>
@@ -1963,10 +2535,22 @@
 		<object-name>Ramp2.Tread3</object-name>
 		<property>instrumentation/doors/cargoramprear/position-norm</property>
 		<interpolation>
-			<entry><ind>0.0</ind><dep>-4.0</dep></entry>
-			<entry><ind>0.3</ind><dep>-4.0</dep></entry>
-			<entry><ind>0.7</ind><dep>-180.0</dep></entry>
-			<entry><ind>1.0</ind><dep>-180.0</dep></entry>
+			<entry>
+				<ind>0.0</ind>
+				<dep>-4.0</dep>
+			</entry>
+			<entry>
+				<ind>0.3</ind>
+				<dep>-4.0</dep>
+			</entry>
+			<entry>
+				<ind>0.7</ind>
+				<dep>-180.0</dep>
+			</entry>
+			<entry>
+				<ind>1.0</ind>
+				<dep>-180.0</dep>
+			</entry>
 		</interpolation> 
  		<axis>
   			<x1-m>13.3924</x1-m>
@@ -1990,10 +2574,15 @@
 		<object-name>Ramp2.Mount3</object-name>
 		<object-name>Ramp2.Tread3</object-name>
 		<property>instrumentation/doors/ramprearkneeled/position-norm</property>
-		
 		<interpolation>
-		<entry><ind>0.0</ind><dep>0.0</dep></entry>
-		<entry><ind>1.0</ind><dep>25.0</dep></entry>
+			<entry>
+				<ind>0.0</ind>
+				<dep>0.0</dep>
+			</entry>
+			<entry>
+				<ind>1.0</ind>
+				<dep>25.0</dep>
+			</entry>
 		</interpolation> 
  		<axis>
   			<x1-m>8.1722</x1-m>
@@ -2004,6 +2593,7 @@
   			<z2-m>-7.34214</z2-m>
  		</axis>
 	</animation>
+
 	<animation>
 		<type>rotate</type>
 		<object-name>Ramp2.Ramp</object-name>
@@ -2014,10 +2604,15 @@
 		<object-name>Ramp2.Mount3</object-name>
 		<object-name>Ramp2.Tread3</object-name>
 		<property>instrumentation/doors/ramprearkneeled/position-norm</property>
-		
 		<interpolation>
-		<entry><ind>0.0</ind><dep>0.0</dep></entry>
-		<entry><ind>1.0</ind><dep>85.0</dep></entry>
+			<entry>
+				<ind>0.0</ind>
+				<dep>0.0</dep>
+			</entry>
+			<entry>
+				<ind>1.0</ind>
+				<dep>85.0</dep>
+			</entry>
 		</interpolation> 
  		<axis>
   			<x1-m>13.3866</x1-m>
@@ -2028,6 +2623,7 @@
   			<z2-m>-6.48326</z2-m>
  		</axis>
 	</animation>
+
 	<animation>
 		<type>rotate</type>
 		<object-name>Ramp2.Mount1</object-name>
@@ -2037,12 +2633,23 @@
 		<object-name>Ramp2.Mount3</object-name>
 		<object-name>Ramp2.Tread3</object-name>
 		<property>instrumentation/doors/ramprearkneeled/position-norm</property>
-		
 		<interpolation>
-			<entry><ind>0.0</ind><dep> 0.0</dep></entry>
-			<entry><ind>0.3</ind><dep> 0.0</dep></entry>
-			<entry><ind>0.7</ind><dep>-165.0</dep></entry>
-			<entry><ind>1.0</ind><dep>-165.0</dep></entry>
+			<entry>
+				<ind>0.0</ind>
+				<dep> 0.0</dep>
+			</entry>
+			<entry>
+				<ind>0.3</ind>
+				<dep> 0.0</dep>
+			</entry>
+			<entry>
+				<ind>0.7</ind>
+				<dep>-165.0</dep>
+			</entry>
+			<entry>
+				<ind>1.0</ind>
+				<dep>-165.0</dep>
+			</entry>
 		</interpolation> 
  		<axis>
   			<x1-m>13.3924</x1-m>
@@ -2053,13 +2660,13 @@
   			<z2-m>-3.66734</z2-m>
  		</axis>
 	</animation>
+
 	<!-- <animation>
 		<type>rotate</type>
 		<object-name>Ramp2.Tread1</object-name>
 		<object-name>Ramp2.Tread2</object-name>
 		<object-name>Ramp2.Tread3</object-name>
 		<property>instrumentation/doors/ramprearkneeled/position-norm</property>
-		
 		<factor> -5 </factor> 
  		<axis>
   			<x1-m>13.5171</x1-m>

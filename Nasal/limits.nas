@@ -18,55 +18,42 @@
 # speeds for different flap settings.
 
 var checkFlaps = func(n) {
-  var flapsetting = n.getValue();
-  if (flapsetting == 0)
-    return;
+	var flapsetting = n.getValue();
+	if (flapsetting == 0)
+	return;
+	var airspeed = getprop("/velocities/airspeed-kt");
+	var ltext = "";
 
-  var airspeed = getprop("velocities/airspeed-kt");
-  var ltext = "";
+	var limits = props.globals.getNode("/limits");
 
-  var limits = props.globals.getNode("limits");
+	if ((limits != nil) and (limits.getChildren("max-flap-extension-speed") != nil)) {
+		var children = limits.getChildren("max-flap-extension-speed");
+		foreach(var c; children) {
+			if ((c.getChild("flaps") != nil) and (c.getChild("speed") != nil)     ) {
+				var flaps = c.getChild("flaps").getValue();
+				var speed = c.getChild("speed").getValue();
+				if ((flaps != nil) and (speed != nil) and (flapsetting > flaps) and (airspeed > speed)) {
+					ltext = "Flaps extended above maximum flap extension speed!";
+				}
+			}
+		}
 
-  if ((limits != nil) and (limits.getChildren("max-flap-extension-speed") != nil))
-  {
-    var children = limits.getChildren("max-flap-extension-speed");
-    foreach(var c; children)
-    {
-      if ((c.getChild("flaps") != nil) and
-          (c.getChild("speed") != nil)     )
-      {
-        var flaps = c.getChild("flaps").getValue();
-        var speed = c.getChild("speed").getValue();
-
-        if ((flaps != nil)        and
-            (speed != nil)        and
-            (flapsetting > flaps) and
-            (airspeed > speed)       )
-        {
-          ltext = "Flaps extended above maximum flap extension speed!";
-        }
-      }
-    }
-
-    if (ltext != "")
-    {
-      screen.log.write(ltext);
-    }
-  }
+		if (ltext != "") {
+			gui.popupTip(ltext);
+		}
+	}
 }
 
 
 var checkGear = func(n) {
-  if (!n.getValue())
-    return;
+	if (!n.getValue())
+	return;
 
-  var airspeed = getprop("velocities/airspeed-kt");
-  var max_gear = getprop("limits/max-gear-extension-speed");
-
-  if ((max_gear != nil) and (airspeed > max_gear))
-  {
-    screen.log.write("Gear extended above maximum extension speed!");
-  }
+	var airspeed = getprop("/velocities/airspeed-kt");
+	var max_gear = getprop("/limits/max-gear-extension-speed");
+	if ((max_gear != nil) and (airspeed > max_gear)) {
+		gui.popupTip("Gear extended above maximum extension speed!");
+	}
 }
 
 
@@ -74,64 +61,42 @@ var checkGear = func(n) {
 setlistener("controls/flight/flaps", checkFlaps);
 setlistener("controls/gear/gear-down", checkGear);
 
-# =============================== Pilot G stuff (taken from hurricane.nas) =================================
-var pilot_g = props.globals.getNode("fdm/jsbsim/accelerations/a-pilot-z-ft_sec2", 1);
-pilot_g.setDoubleValue(0);
-
-var g_damp = 0;
-
-var updatePilotG = func {
-  var g = pilot_g.getValue() ;
-  #if (g == nil) { g = 0; }
-  g_damp = ( g * 0.2) + (g_damp * 0.8);
-
-  settimer(updatePilotG, 0.2);
-}
-
-updatePilotG();
 
 var checkGandVNE = func {
-  if (getprop("/sim/freeze/replay-state"))
-    return;
 
-  var max_positive = getprop("limits/max-positive-g");
-  var max_negative = getprop("limits/max-negative-g");
-  var msg = "";
+	if (getprop("/sim/freeze/replay-state"))
+	return;
 
-  # Convert the ft/sec^2 into Gs - allowing for gravity.
-  var g = (- g_damp) / 32;
+	var g = getprop("/accelerations/pilot-gdamped") or 1;
+	var max_positive = getprop("/limits/max-positive-g");
+	var max_negative = getprop("/limits/max-negative-g");
+	var msg = "";
 
-  if ((max_positive != nil) and (g > max_positive))
-  {
-    msg = "Airframe structural positive-g load limit exceeded!";
-  }
+	if ((max_positive != nil) and (g > max_positive)) {
+		msg = "Airframe structural positive-g load limit exceeded!";
+	}
 
-  if ((max_negative != nil) and (g < max_negative))
-  {
-    msg = "Airframe structural negative-g load limit exceeded!";
-  }
+	if ((max_negative != nil) and (g < max_negative)) {
+		msg = "Airframe structural negative-g load limit exceeded!";
+	}
 
-  # Now check VNE
-  var airspeed = getprop("velocities/airspeed-kt");
-  var vne      = getprop("limits/vne");
+	# Now check VNE
+	var airspeed = getprop("/velocities/airspeed-kt");
+	var vne      = getprop("/limits/vne");
 
-  if ((airspeed != nil) and (vne != nil) and (airspeed > vne))
-  {
-    msg = "Airspeed exceeds Vne!";
-  }
+	if ((airspeed != nil) and (vne != nil) and (airspeed > vne)) {
+		msg = "Airspeed exceeds Vne!";
+	}
 
-  if (msg != "")
-  {
-    # If we have a message, display it, but don't bother checking for
-    # any other errors for 10 seconds. Otherwise we're likely to get
-    # repeated messages.
-    screen.log.write(msg);
-    settimer(checkGandVNE, 10);
-  }
-  else
-  {
-    settimer(checkGandVNE, 1);
-  }
+	if (msg != "") {
+		# If we have a message, display it, but don't bother checking for
+		# any other errors for 10 seconds. Otherwise we're likely to get
+		# repeated messages.
+		gui.popupTip(msg);
+		settimer(checkGandVNE, 10);
+	} else {
+		settimer(checkGandVNE, 1);
+	}
 }
 
 checkGandVNE();

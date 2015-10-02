@@ -3,7 +3,7 @@ MATERIAL "ac3dmat1" rgb 1 1 1  amb 0.2 0.2 0.2  emis 0 0 0  spec 0.2 0.2 0.2  sh
 OBJECT world
 kids 25
 OBJECT poly
-name "Window"
+name "Window1"
 loc 7.0094 -0.212937 -0.0464
 texture "Liveries/Cockpit.png"
 crease 45.000000
@@ -24,7 +24,7 @@ numvert 14
 -7.22104 -0.195024 1.77563
 kids 0
 OBJECT poly
-name "Window"
+name "Window2"
 loc -0.0739999 -0.00181798 -0.0928081
 texture "Liveries/Cockpit.png"
 crease 45.000000
@@ -124,7 +124,7 @@ refs 17
 8 0.177182 0.951715
 kids 0
 OBJECT poly
-name "Window"
+name "Window3"
 loc 30.6208 -1.35472 -4.8936
 texture "Liveries/Cockpit.png"
 crease 45.000000
@@ -422,7 +422,7 @@ refs 4
 47 0.049734 0.854018
 kids 0
 OBJECT poly
-name "Window"
+name "Window4"
 loc 31.2785 1.32751 -0.092808
 texture "Liveries/Cockpit.png"
 crease 45.000000
@@ -546,7 +546,7 @@ refs 3
 18 0.0903459 0.866354
 kids 0
 OBJECT poly
-name "Window"
+name "Window5"
 loc 31.2785 1.32751 -0.092808
 texture "Liveries/Cockpit.png"
 crease 45.000000
@@ -665,7 +665,7 @@ refs 3
 16 0.255349 0.952152
 kids 0
 OBJECT poly
-name "Window"
+name "Window6"
 loc 0.1982 -0.0746975 -0.0546615
 texture "Liveries/Cockpit.png"
 crease 45.000000

@@ -1,306 +1,277 @@
 <?xml version="1.0"?>
-<PropertyList>
-  <sim>
-    <description>C-5M Galaxy "FRED" (JSBSim)</description>
-    <status>Alpha</status>
-	<rating>
-	  <FDM type="int">1</FDM>
-	  <systems type="int">1</systems>
-	  <cockpit type="int">0</cockpit>
-	  <model type="int">4</model>
-	</rating>
-		
-	<author>Jon Bourgeois (FDM, 3D Model, Animation)</author>
-	<author>Gary Scott (Liveries)</author>
-	<aircraft-version>2.0</aircraft-version>
+
+<PropertyList include="Aircraft/JPack/Interface.xml">
+
+	<sim>
+		<description>C-5M Galaxy "FRED" (JSBSim)</description>
+		<author>Jon Bourgeois (FDM, 3D Model, Animation)</author>
+		<author>Gary Scott (Liveries)</author>
+		<author>Peter Brendt aka Jabberwocky - making it acutally flyable in V03</author>
+
+		<aircraft-version>V03.00.00</aircraft-version>
+		<status>Alpha</status>
+
+		<rating>
+			<FDM type="int">1</FDM>
+			<systems type="int">1</systems>
+			<cockpit type="int">0</cockpit>
+			<model type="int">4</model>
+		</rating>		
+	
+		<flight-model>jsb</flight-model>
+		<aero>C-5M-JSB</aero>
+		<engine>GE_F138-GE-100</engine>
     
-	<!-- Splash Screen -->	
+		<!-- Splash Screen -->	
+		<startup>
+			<splash-texture>Aircraft/C-5/splash.png</splash-texture>
+		</startup>
 	
-	<!-- <startup>
-	  <splash-texture>Aircraft/C-5/</splash-texture>
-	</startup> -->
+		<!-- Settings for model -->    
+		<model>
+			<path>Aircraft/C-5/Models/C-5.xml</path>
+
+			<!-- JPack: push forces for Voodoomaster Pushback -->
+			<pushback>
+				<kp type="double">1200</kp>
+				<ki type="double">0</ki>
+				<kd type="double">0</kd>
+				<position-norm type="double">0</position-norm>
+				<enabled type="bool">false</enabled>
+			</pushback>
+
+			<!-- String variable to hold current livery -->
+			<livery>
+				<file type="string">436th</file>
+				<!-- texture>436th.png</texture -->
+			</livery> 
+		</model>
+
+		<!-- Subsection for submodels -->
+		<!-- submodels>
+			<serviceable type="bool">1</serviceable>
+			<path>Aircraft/JPack/Voodoomaster/Services/Military/MilitarySub.xml</path>
+		</submodels -->  
+
+		<!-- basic startup settings for sim -->
+		<freeze>
+			<fuel>false</fuel>	<!-- false is default -->
+		</freeze>
+
+		<fuel-fraction>0.8</fuel-fraction>
+
+		<chase-distance-m type="double" archive="y">-100</chase-distance-m>
 	
-	
-	<flight-model>jsb</flight-model>
-    <aero>C-5-JSB</aero>
-	
-	<sound>
-		<path>Aircraft/C-5/Sounds/C-5-sound.xml</path>
-	</sound>
-    
-	<model>
-      <path>Aircraft/C-5/Models/C-5.xml</path>
-	  <livery>
-		<file type="string">436th</file>
-		<texture>436th.png</texture>
-	  </livery> 
-	</model>
+		<sound>
+			<path>Aircraft/C-5/Sounds/C-5-sound.xml</path>
+		</sound>
+
+		<autostart>
+			<started>0</started>
+		</autostart>
+
+		<flaps>
+			<setting>0.000</setting> <!-- 0 deg up -->
+			<setting>0.200</setting> <!-- 8 deg maneuvering -->
+			<setting>0.400</setting> <!-- 16 deg intermediate I -->
+			<setting>0.625</setting> <!-- 25 deg intermediate II -->
+			<setting>0.800</setting> <!-- 32 deg take off -->
+			<setting>1.000</setting> <!-- 40 deg landing -->
+		</flaps>
+
+		<virtual-cockpit archive="y">true</virtual-cockpit>
+
+		<!-- Instrumentation in sim -->
+		<instrumentation include="Systems/instrumentation.xml"></instrumentation>
+
+		<!-- #### MP section if exists -->
 		
-		
-	<chase-distance-m type="double" archive="y">-100</chase-distance-m>
+		<!-- #### HUD section if exists -->
+		<hud>
+			<enable3d>false</enable3d>
+		</hud>
+		  
+		<!-- Blackout rendering due to G-forces -->
+		<rendering>
+			<redout>
+				<parameters>
+					<blackout-complete-g>9.1</blackout-complete-g>
+					<blackout-onset-g>7.5</blackout-onset-g>
+				</parameters>
+			</redout>
+		</rendering>
 	
 		<view n="0">
-          <name>Pilot View</name>
-           <type>lookfrom</type>
-            <internal type="bool">true</internal>
-            <config>
-              <x-offset-m type="double">-1</x-offset-m>			<!-- Negative Moves view Left -->
-              <y-offset-m type="double"> 3.25</y-offset-m>		<!-- Positive Moves view Up -->
-              <z-offset-m type="double">-30.5</z-offset-m>		<!-- Negative Moves view Forward -->
-              <pitch-offset-deg>0</pitch-offset-deg>
-              <limits>
-                <enabled type="bool">true</enabled>
-              <left>
-                <heading-max-deg type="double">140</heading-max-deg>
-                <x-offset-max-m type="double">0.35</x-offset-max-m>
-                <x-offset-threshold-deg type="double">65</x-offset-threshold-deg>
-              </left>
-              <right>
-                <heading-max-deg type="double">160</heading-max-deg>
-                <x-offset-max-m type="double">0.25</x-offset-max-m>
-                <x-offset-threshold-deg type="double">65</x-offset-threshold-deg>
-              </right>
-                </limits>
-            </config>
-        </view>
-		<view n="101">
-		  <name>Loadmaster</name>
-		  <internal archive="y">true</internal>
-		  <type>lookfrom</type>
+			<name>Pilot View</name>
+			<type>lookfrom</type>
+			<internal type="bool">true</internal>
 			<config>
-			  <from-model type="bool">true</from-model>
-			  <from-model-idx type="int">0</from-model-idx>
-			  <x-offset-m type="double">0.0</x-offset-m>		<!-- Negative Moves view Left -->
-			  <y-offset-m type="double">0.0</y-offset-m>		<!-- Positive Moves view Up -->
-			  <z-offset-m type="double">0.0</z-offset-m>		<!-- Negative Moves view Forward 6.14 -->
-			  <pitch-offset-deg>0</pitch-offset-deg>
-			  <default-field-of-view-deg>45.3</default-field-of-view-deg>
+				<x-offset-m type="double">-1</x-offset-m>			<!-- Negative Moves view Left -->
+				<y-offset-m type="double"> 3.25</y-offset-m>		<!-- Positive Moves view Up -->
+				<z-offset-m type="double">-30.5</z-offset-m>		<!-- Negative Moves view Forward -->
+				<pitch-offset-deg>0</pitch-offset-deg>
+				<limits>
+					<enabled type="bool">true</enabled>
+					<left>
+						<heading-max-deg type="double">140</heading-max-deg>
+						<x-offset-max-m type="double">0.35</x-offset-max-m>
+						<x-offset-threshold-deg type="double">65</x-offset-threshold-deg>
+					</left>
+					<right>
+						<heading-max-deg type="double">160</heading-max-deg>
+						<x-offset-max-m type="double">0.25</x-offset-max-m>
+						<x-offset-threshold-deg type="double">65</x-offset-threshold-deg>
+					</right>
+				</limits>
 			</config>
 		</view>
+
+		<view n="101">
+			<name>Loadmaster</name>
+			<internal archive="y">true</internal>
+			<type>lookfrom</type>
+			<config>
+				<from-model type="bool">true</from-model>
+				<from-model-idx type="int">0</from-model-idx>
+				<x-offset-m type="double">0.0</x-offset-m>		<!-- Negative Moves view Left -->
+				<y-offset-m type="double">0.0</y-offset-m>		<!-- Positive Moves view Up -->
+				<z-offset-m type="double">0.0</z-offset-m>		<!-- Negative Moves view Forward 6.14 -->
+				<pitch-offset-deg>0</pitch-offset-deg>
+				<default-field-of-view-deg>45.3</default-field-of-view-deg>
+			</config>
+		</view>
+
 		<view n="102">
-		  <name>Tail view</name>
-		  <type>lookfrom</type>
-		  <internal type="bool">false</internal>
-		  <config>
-			<from-model type="bool">true</from-model>
-			<from-model-idx type="int">0</from-model-idx>
-			<ground-level-nearplane-m type="double">6f</ground-level-nearplane-m>
-			<x-offset-m type="double">0.00</x-offset-m>
-			<y-offset-m type="double">18.0</y-offset-m>
-			<z-offset-m type="double">8</z-offset-m>
-			<pitch-offset-deg>-10</pitch-offset-deg>
-			<default-field-of-view-deg type="double">75.0</default-field-of-view-deg>
-		  </config>
-		  <dynamic>
-			<enabled type="bool">false</enabled>
-		  </dynamic>
+			<name>Tail view</name>
+			<type>lookfrom</type>
+			<internal type="bool">false</internal>
+			<config>
+				<from-model type="bool">true</from-model>
+				<from-model-idx type="int">0</from-model-idx>
+				<ground-level-nearplane-m type="double">6f</ground-level-nearplane-m>
+				<x-offset-m type="double">0.00</x-offset-m>
+				<y-offset-m type="double">18.0</y-offset-m>
+				<z-offset-m type="double">8</z-offset-m>
+				<pitch-offset-deg>-10</pitch-offset-deg>
+				<default-field-of-view-deg type="double">75.0</default-field-of-view-deg>
+			</config>
+			<dynamic>
+				<enabled type="bool">false</enabled>
+			</dynamic>
 		</view>
 		
 		<!-- Aircraft Help What buttons do what  -->
 		<help>
-		<title>C-5 Galaxy</title>
-		<key>
-			<name>d</name>
-			<desc>Cargo Door Front</desc>
-		</key> 
-		<key>
-			<name>D</name>
-			<desc>Crew Door</desc>
-		</key>
-		<key>
-			<name>f</name>
-			<desc>Cargo Door Rear</desc>
-		</key>
-		<key>
-			<name>K</name>
-			<desc>Kneel Aircraft</desc>
-		</key>
-		<key>
-			<name>r</name>
-			<desc>Lower/Raise Front Cargo Ramp</desc>
-		</key>
-		<key>
-			<name>R</name>
-			<desc>Lower/Raise Front Cargo Ramp (Kneeled)</desc>
-		</key>
-		<key>
-			<name>t</name>
-			<desc>Lower/Raise Rear Cargo Ramp</desc>
-		</key>
-		<key>
-			<name>T</name>
-			<desc>Lower/Raise Rear Cargo Ramp (Kneeled)</desc>
-		</key>
-		<key>
-			<name>w</name>
-			<desc>Walk Forward View</desc>
-		</key>
-		<key>
-			<name>W</name>
-			<desc>Walk Backword View</desc>
-		</key>
-		<key>
-			<name>Delete</name>
-			<desc>Toggle Thrust Reversers</desc>
-		</key>		
+			<title>C-5 Galaxy</title>
+			<key>
+				<name>d</name>
+				<desc>Cargo Door Front</desc>
+			</key> 
+			<key>
+				<name>D</name>
+				<desc>Crew Door</desc>
+			</key>
+			<key>
+				<name>f</name>
+				<desc>Cargo Door Rear</desc>
+			</key>
+			<key>
+				<name>K</name>
+				<desc>Kneel Aircraft</desc>
+			</key>
+			<key>
+				<name>r</name>
+				<desc>Lower/Raise Front Cargo Ramp</desc>
+			</key>
+			<key>
+				<name>R</name>
+				<desc>Lower/Raise Front Cargo Ramp (Kneeled)</desc>
+			</key>
+			<key>
+				<name>t</name>
+				<desc>Lower/Raise Rear Cargo Ramp</desc>
+			</key>
+			<key>
+				<name>T</name>
+				<desc>Lower/Raise Rear Cargo Ramp (Kneeled)</desc>
+			</key>
+			<key>
+				<name>w</name>
+				<desc>Walk Forward View</desc>
+			</key>
+			<key>
+				<name>W</name>
+				<desc>Walk Backword View</desc>
+			</key>
+			<key>
+				<name>Delete</name>
+				<desc>Toggle Thrust Reversers</desc>
+			</key>		
 
-		<!-- *** This is an Example of what goes here ***
-		<text>
-All buttons/switches in the cockpit can be controlled using the mouse. Most buttons exist of a
-toggle, where clicking it toggles it either on or off. Switches can be turned clockwise with the
-left mouse button and counter clockwise using the middle mouse button.
-
-===Startup======
-1. Press the continuous ignition switch on the overhead panel.
-2. Pull the start select switch for engine #4.
-3. Set the cutoff switch on the pedestal to RUN.
-4. Now repeat step 2 and 3 for engines #1, #2 and #3. 
-
+			<text>
 ===Takeoff======
-1.  Set flaps to 20, it will take a minute to extend, so you'd better do this during taxi.
-2. Smoothly apply full throttle.
-3. Push the stick slightly forward until atleast 80 kts.
-4. Around 160 kts, slowly pull the stick back.
-5. The plane should takeoff around 180 kts.
-6. Retract gear as soon as the aircraft is climbing with atleast 500 ft per minute. 
+1. Set flaps to 32 degrees (setting 5), it will take almost a minute to extend, so you'd better do this during taxi.
+2. Apply full throttle, on a short runway keep parking brakes on till the engines spin up, yes, they have a dead time like a real Galaxy.
+3. VR and V1 are surprisingly short especially if there is less than full load. VR at 732,000 lbs weight is about 125-130 knots depending on wind.
+4. She has at higher flap settings a high tendency to climb due to the sheer flap size and especially when she is light. As light counts basically everything under a full heard of elephants plus some fully grown whales.
 
-===Shutdown=====
-1. Set all cutoff switches to OFF.
-2. Turn continuous ignition OFF. 
-		</text> -->
+===Flying======
+1. She is big, fat and quite heavy. Still, she is surprisingly maneuverable and since the AP uses up to 45 degree bank angle, she turns fast but overshoots sometimes at the end of the turn and needs a little rudder-help to get the new course straight.
+2. She is built to fly around with roughly 840,000 lbs weight total, almost a million pounds under war conditions. So she has a lot of lift. If you find, you can't descend with some flap settings, especially when she has no payload and almost empty tanks, you are probably too fast AND have too much flaps out.
 
-	</help>
+===Landing=====
+1. Flaps 40 degrees (setting 6)
+2. Threshold speed is depending on weight between 105 knots and 145 knots (145 only if overloaded with full tanks, crew and load)
+3. If you are too fast, she will climb and have trouble to descend. She can either land with less flaps or less speed - obviously. It depends on who is behind you, so, with taking back flaps to 16 degrees (setting 2) she will also land at higher speeds, she has re-enforced gear. Or you stay at 40 degrees flaps and let her crawl in with as little as 105 to 125 knots, depending no the weight.
+4. When on AP, she lands relative steep. Don't be scared, it's just her nature, she is built to land steep and stop fast on relative short runways.
+5. She has reversers, but to use them, you need to put throttle to zero, press the delete key and then push throttle up again. She will not switch reversers on while you rumble with full throttle over the landscape. And to get them off again, guess what, you need to pull throttle to zero again and press then delete or she will ignore you.
+			</text>
+
+		</help>
 	
-<!-- Menu Bar  -->
+		<!-- Menubar  -->
 		<menubar>
-		  <default>
-			<menu n="10">				
-			<label>C-5 Liveries</label>
-			<enabled type="bool">true</enabled>
-			<item>
-			  <label>Select Livery</label>
-			  <binding>
-			  <command>nasal</command>
-			  <script>aircraft.livery.dialog.toggle()</script>
-			  </binding>
-			</item>
-			</menu>		
-		  </default>	
+			<default>
+				<menu n="3">
+					<item>
+						<name>autopilot</name>
+						<label>Autopilot Settings</label>
+						<binding>
+							<command>nasal</command>
+							<script>
+							 var autopilot = gui.Dialog.new("sim/gui/dialogs/autopilot/dialog", "Aircraft/C-5/Dialogs/autopilot.xml");
+							 autopilot.open();
+							</script>
+						</binding>
+					</item>
+				</menu>
+				<menu n="10">				
+					<label>C-5 Liveries</label>
+					<enabled type="bool">true</enabled>
+					<item>
+						<label>Select Livery</label>
+						<binding>
+							<command>nasal</command>
+							<script>aircraft.livery.dialog.toggle()</script>
+						</binding>
+					</item>
+				</menu>		
+			</default>	
 		</menubar>
+
+		<!-- Systems -->
+		<systems>
+			<!-- path>Aircraft/767/Systems/767.xml</path -->
+			<electrical>
+				<path>Aircraft/Generic/generic-electrical.xml</path>
+			</electrical>
+			<autopilot>
+				<path>Aircraft/JPack/Voodoomaster/Systems/SYS8_0_autopilot.xml</path>
+			</autopilot>
+		</systems>
 	
-  </sim>
-  
-	<input>
-      <keyboard>
-		<key n="100">
-		  <name>d</name>
-		  <desc>Open/Close Front CargoDoor</desc>
-		  <binding>
-			<command>nasal</command>
-			<script>doors.doorsystem.cargodoorfrontexport();</script>
-		  </binding>
-		</key> 
-		<key n="102">
-		  <name>f</name>
-		  <desc>Open/Close Rear CargoDoor</desc>
-		  <binding>
-			<command>nasal</command>
-			<script>doors.doorsystem.cargodoorrearexport();</script>
-		  </binding>
-		</key>
-	    <key n="68">
-		  <name>D</name>
-		  <desc>Open/Close Crew Door</desc>
-		  <binding>
-			<command>nasal</command>
-			<script>doors.doorsystem.crewdoorexport();</script>
-		  </binding>
-		</key>
-		<key n="127">
-		  <name>Delete</name>
-		  <desc>Toggle Reversers</desc>
-		  <binding>
-			<command>nasal</command>
-			<script>reversethrust.togglereverser();</script>
-		  </binding>
-		</key>
-		<key n="75">
-		  <name>K</name>
-		  <desc>Kneel Aircraft</desc>
-		  <binding>
-			<command>nasal</command>
-			<script>kneel.kneelsystem.kneelacexport();</script>
-		  </binding>
-		</key>
-		<key n="109">
-		  <name>m</name>
-		  <desc>engage nose wheel steering</desc>
-		  <binding>
-			<command>property-assign</command>
-			<property>fdm/jsbsim/systems/NWS/engaged</property>
-		  <value>1</value> 
-		  </binding>
-		  <mod-up>
-		  <binding>
-			<command>property-assign</command>
-			<property>fdm/jsbsim/systems/NWS/engaged</property>
-          <value>0</value> 
-		  </binding>
-		  </mod-up>
-		</key>
-		<key n="114">
-		  <name>r</name>
-		  <desc>Lower/Raise Front Cargo Ramp</desc>
-		  <binding>
-			<command>nasal</command>
-			<script>doors.doorsystem.cargorampfrontexport();</script>
-		  </binding>
-		</key>
-		<key n="82">
-		  <name>R</name>
-		  <desc>Lower/Raise Front Cargo Ramp (Kneeled)</desc>
-		  <binding>
-			<command>nasal</command>
-			<script>doors.doorsystem.rampfrontkneeledexport();</script>
-		  </binding>
-		</key>
-		<key n="116">
-		  <name>t</name>
-		  <desc>Lower/Raise Rear Cargo Ramp</desc>
-		  <binding>
-			<command>nasal</command>
-			<script>doors.doorsystem.cargoramprearexport();</script>
-		  </binding>
-		</key>
-		<key n="84">
-		  <name>T</name>
-		  <desc>Lower/Raise Rear Cargo Ramp (Kneeled)</desc>
-		  <binding>
-			<command>nasal</command>
-			<script>doors.doorsystem.ramprearkneeledexport();</script>
-		  </binding>
-		</key>
-		<key n="119">
-		  <name>w</name>
-		  <desc>Walk forward toward view</desc>
-		  <repeatable>true</repeatable>
-		  <binding>
-			<command>nasal</command>
-			<script>walk.walk_about(0.1);</script>
-		  </binding>
-		</key>
-		<key n="87">
-		  <name>W</name>
-		  <desc>Walk backward from view</desc>
-		  <repeatable>true</repeatable>
-		  <binding>
-			<command>nasal</command>
-			<script>walk.walk_about(-0.1);</script>
-		  </binding>
-		</key>
-	  </keyboard>
-	</input>
-  
+	</sim>
+    
   	<consumables>
 	  <fuel>
 		<tank n="0"><name>Main1</name></tank>
@@ -317,59 +288,326 @@ left mouse button and counter clockwise using the middle mouse button.
 		<tank n="11"><name>Main4</name></tank>
 	  </fuel>
 	</consumables>
+
+	<!-- Payload section: Whatever weights -->
+	<payload>
+
+		<weight n="0">
+			<name>Commander</name>
+			<!-- commander -->
+			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[0]" />
+			<min-lb type="double">    0</min-lb>
+			<max-lb type="double">  240</max-lb>
+		</weight>
+
+		<weight n="1">
+			<name>Pilot</name>
+			<!-- pilot -->
+			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[1]" />
+			<min-lb type="double">  180</min-lb>
+			<max-lb type="double">  240</max-lb>
+		</weight>
+
+		<weight n="2">
+			<!-- copilot -->
+			<name>Copilot</name>
+			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[2]" />
+			<min-lb type="double">180</min-lb>
+			<max-lb type="double">240</max-lb>
+		</weight>
+
+		<weight n="3">
+			<!-- engineers -->
+			<name>Engineers</name>
+			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[3]" />
+			<min-lb type="double">360</min-lb>
+			<max-lb type="double">480</max-lb>
+		</weight>
+
+		<weight n="4">
+			<!-- loadmasters -->
+			<name>Loadmasters</name>
+			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[4]" />
+			<min-lb type="double">0</min-lb>
+			<max-lb type="double">720</max-lb>
+		</weight>
+
+		<weight n="5">
+			<!-- payload -->
+			<name>Payload</name>
+			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[5]" />
+			<min-lb type="double">     0</min-lb>
+			<max-lb type="double">285000</max-lb>
+		</weight>
+
+	</payload>
+
+	<input>
+		<keyboard>
+
+			<key n="2">
+				<name>Ctrl-B</name>
+				<desc>Speedbrakes</desc>
+				<repeatable>true</repeatable>
+				<binding>
+					<command>property-cycle</command>
+					<property>controls/flight/speedbrake</property>
+					<value>0.0</value>
+					<value>0.5</value>
+					<value>1.0</value>
+				</binding>
+			</key>
+
+			<key n="100">
+				<name>d</name>
+				<desc>Open/Close Front CargoDoor</desc>
+				<binding>
+					<command>nasal</command>
+					<script>doors.doorsystem.cargodoorfrontexport();</script>
+				</binding>
+			</key> 
+			<key n="102">
+				<name>f</name>
+				<desc>Open/Close Rear CargoDoor</desc>
+				<binding>
+					<command>nasal</command>
+					<script>doors.doorsystem.cargodoorrearexport();</script>
+				</binding>
+			</key>
+			<key n="68">
+				<name>D</name>
+				<desc>Open/Close Crew Door</desc>
+				<binding>
+					<command>nasal</command>
+					<script>doors.doorsystem.crewdoorexport();</script>
+				</binding>
+			</key>
+			<key n="127">
+				<name>Delete</name>
+				<desc>Toggle Reversers</desc>
+				<binding>
+					<command>nasal</command>
+					<script>reversethrust.togglereverser();</script>
+				</binding>
+			</key>
+			<key n="75">
+				<name>K</name>
+				<desc>Kneel Aircraft</desc>
+				<binding>
+					<command>nasal</command>
+					<script>kneel.kneelsystem.kneelacexport();</script>
+				</binding>
+			</key>
+			<key n="109">
+				<name>m</name>
+				<desc>engage nose wheel steering</desc>
+				<binding>
+					<command>property-assign</command>
+					<property>fdm/jsbsim/systems/NWS/engaged</property>
+					<value>1</value> 
+				</binding>
+				<mod-up>
+					<binding>
+						<command>property-assign</command>
+						<property>fdm/jsbsim/systems/NWS/engaged</property>
+						<value>0</value> 
+					</binding>
+				</mod-up>
+			</key>
+			<key n="114">
+				<name>r</name>
+				<desc>Lower/Raise Front Cargo Ramp</desc>
+				<binding>
+					<command>nasal</command>
+					<script>
+						if (getprop("/sim/model/kneelac/position-norm")>0.5) {
+							doors.doorsystem.rampfrontkneeledexport();
+						} else {
+							doors.doorsystem.cargorampfrontexport();
+						}
+					</script>
+				</binding>
+			</key>
+			<key n="82">
+				<name>R</name>
+				<desc>Lower/Raise Front Cargo Ramp (Kneeled)</desc>
+				<binding>
+					<command>nasal</command>
+					<script>
+						if (getprop("/sim/model/kneelac/position-norm")>0.5) {
+							doors.doorsystem.rampfrontkneeledexport();
+						} else {
+							doors.doorsystem.cargorampfrontexport();
+						}
+					</script>
+				</binding>
+			</key>
+			<key n="116">
+				<name>t</name>
+				<desc>Lower/Raise Rear Cargo Ramp</desc>
+				<binding>
+					<command>nasal</command>
+					<script>
+						if (getprop("/sim/model/kneelac/position-norm")>0.5) {
+							doors.doorsystem.ramprearkneeledexport();
+						} else {
+							doors.doorsystem.cargoramprearexport();
+						}
+					</script>
+					<script>doors.doorsystem.cargoramprearexport();</script>
+				</binding>
+			</key>
+			<key n="84">
+				<name>T</name>
+				<desc>Lower/Raise Rear Cargo Ramp (Kneeled)</desc>
+				<binding>
+					<command>nasal</command>
+					<script>
+						if (getprop("/sim/model/kneelac/position-norm")>0.5) {
+							doors.doorsystem.ramprearkneeledexport();
+						} else {
+							doors.doorsystem.cargoramprearexport();
+						}
+					</script>
+				</binding>
+			</key>
+			<key n="119">
+				<name>w</name>
+				<desc>Walk forward toward view</desc>
+				<repeatable>true</repeatable>
+				<binding>
+					<command>nasal</command>
+					<script>walk.walk_about(0.1);</script>
+				</binding>
+			</key>
+			<key n="87">
+				<name>W</name>
+				<desc>Walk backward from view</desc>
+				<repeatable>true</repeatable>
+				<binding>
+					<command>nasal</command>
+					<script>walk.walk_about(-0.1);</script>
+				</binding>
+			</key>
+		</keyboard>
+	</input>
 	
 	<engines>
-	  <engine n="0">
-		<running>true</running>
-	  </engine>
-	  <engine n="1">
-		<running>true</running>
-	  </engine>
-	  <engine n="2">
-		<running>true</running>
-	  </engine>
-	  <engine n="3">
-		<running>true</running>
-	  </engine>
+		<engine n="0">
+			<running>true</running>
+		</engine>
+		<engine n="1">
+			<running>true</running>
+		</engine>
+		<engine n="2">
+			<running>true</running>
+		</engine>
+		<engine n="3">
+			<running>true</running>
+		</engine>
 	</engines>
 	
 	<engines>
-	<engine n="0">
-	  <reverser-position type="double">0.000000</reverser-position>
-	</engine>     
-	<engine n="1">
-	  <reverser-position type="double">0.000000</reverser-position>
-	</engine> 
-	<engine n="2">
-	  <reverser-position type="double">0.000000</reverser-position>
-	</engine>
-	<engine n="3">
-	  <reverser-position type="double">0.000000</reverser-position>
-	</engine>
+		<engine n="0">
+			<reverser-position type="double">0.000000</reverser-position>
+		</engine>     
+		<engine n="1">
+			<reverser-position type="double">0.000000</reverser-position>
+		</engine> 
+		<engine n="2">
+			<reverser-position type="double">0.000000</reverser-position>
+		</engine>
+		<engine n="3">
+			<reverser-position type="double">0.000000</reverser-position>
+		</engine>
 	</engines>
 	
 	<controls>
-      <gear>
-		<brake-parking>1</brake-parking>
-      </gear>
-    </controls>
+		<gear>
+			<brake-parking>1</brake-parking>
+	      </gear>
+	</controls>
 			
 	<fdm>
-	  <jsbsim>
-		<systems>
-		<NWS>
-		  <engaged type="double">0</engaged>
-		</NWS>
-		</systems> 
-	  </jsbsim>
+		<jsbsim>
+			<systems>
+				<NWS>
+					<engaged type="double">0</engaged>
+				</NWS>
+			</systems> 
+		</jsbsim>
 	</fdm>
+	
+	<limits>
+		<vne>402</vne>
+ 
+		<max-positive-g>4.4</max-positive-g>
+		<max-negative-g>-1.76</max-negative-g>
+ 
+		<max-flap-extension-speed n="0">
+			<flaps>0.167</flaps>
+			<speed>245</speed>
+		</max-flap-extension-speed>
+		<max-flap-extension-speed n="1">
+			<flaps>0.333</flaps>
+			<speed>215</speed>
+		</max-flap-extension-speed>
+		<max-flap-extension-speed n="2">
+			<flaps>0.667</flaps>
+			<speed>185</speed>
+		</max-flap-extension-speed>
+		<max-flap-extension-speed n="3">
+			<flaps>0.833</flaps>
+			<speed>185</speed>
+		</max-flap-extension-speed>
+		<max-flap-extension-speed n="4">
+			<flaps>1.000</flaps>
+			<speed>160</speed>
+		</max-flap-extension-speed>
+
+		<max-gear-extension-speed>220</max-gear-extension-speed>
+
+		<mass-and-balance>
+			<maximum-ramp-mass-lbs>875000</maximum-ramp-mass-lbs>
+			<maximum-takeoff-mass-lbs>840000</maximum-takeoff-mass-lbs>
+			<maximum-landing-mass-lbs>840000</maximum-landing-mass-lbs>
+			<maximum-zero-fuel-mass-lbs>665000</maximum-zero-fuel-mass-lbs>
+		</mass-and-balance>
+	</limits>
+    
+	<!-- Autopilot initialization -->
+	<autopilot>
+
+		<settings>
+			<kts-mach-select type="string">kts</kts-mach-select>
+			<max-pitch type="float"> 8.0</max-pitch>
+			<min-pitch type="float">-6.0</min-pitch>
+			<bank-angle-limit-deg type="int">45</bank-angle-limit-deg>
+		</settings>
+
+		<internal>
+			<target-pitch-deg type="float">0.00</target-pitch-deg>
+			<max-pitch type="float"> 8.0</max-pitch>
+			<min-pitch type="float">-6.0</min-pitch>
+		</internal>
+
+	</autopilot>
+  
+	<!-- Voodoomaster plane specific initializations -->
+	<voodoomaster>
+		<steering-wheel type="int">0</steering-wheel>
+		<steering-type type="string">TriCycle</steering-type>	<!-- Alternativ: Taildragger-lock or TriCycle -->
+		<pushback>
+			<activated type="bool">false</activated>
+		</pushback>
+	</voodoomaster>
 		
 	<nasal>
-        <C-5>
-            <file>Aircraft/Generic/limits.nas</file>
+		<C-5>
+			<file>Aircraft/C-5/Nasal/limits.nas</file>
 			<file>Aircraft/C-5/Nasal/liveries.nas</file>
 		</C-5>
-    	<tyresmoke>
+		<tyresmoke>
 			<file>Aircraft/C-5/Nasal/tyresmoke.nas</file>
 		</tyresmoke>
 		<reversethrust>
@@ -381,12 +619,12 @@ left mouse button and counter clockwise using the middle mouse button.
 		<walk>
 			<file>Aircraft/C-5/Nasal/walk.nas</file>
 		</walk>
-		<terrainfriction>
-            <file>Aircraft/C-5/Nasal/terrainfriction.nas</file>
-        </terrainfriction>
+		<!-- terrainfriction>
+			<file>Aircraft/C-5/Nasal/terrainfriction.nas</file>
+		</terrainfriction -->
 		<kneel>
-            <file>Aircraft/C-5/Nasal/kneel.nas</file>
-        </kneel> 
+			<file>Aircraft/C-5/Nasal/kneel.nas</file>
+		</kneel> 
 	</nasal>
 		
 </PropertyList>

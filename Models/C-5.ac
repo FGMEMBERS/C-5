@@ -76928,7 +76928,7 @@ refs 4
 20 0.915949 0.650948
 kids 0
 OBJECT poly
-name "Window"
+name "ExtWindow1"
 loc 0.0619392 -3.99618 0.000329971
 texture "Liveries/436th.png"
 crease 45.000000
@@ -77067,7 +77067,7 @@ refs 3
 7 0.967855 0.923342
 kids 0
 OBJECT poly
-name "Window"
+name "ExtWindow2"
 loc 0.0619392 -3.99618 0.000329971
 texture "Liveries/436th.png"
 crease 45.000000
@@ -77197,7 +77197,7 @@ refs 3
 19 0.959692 0.924732
 kids 0
 OBJECT poly
-name "Window"
+name "ExtWindow3"
 loc 0.0619392 -3.99618 0.000329971
 texture "Liveries/436th.png"
 crease 45.000000
@@ -77298,7 +77298,7 @@ refs 3
 17 0.965416 0.926583
 kids 0
 OBJECT poly
-name "Window"
+name "ExtWindow4"
 loc -31.9079 -1.35044 -0.00348237
 texture "Liveries/436th.png"
 crease 45.000000
@@ -77348,7 +77348,7 @@ refs 3
 4 0.981141 0.982439
 kids 0
 OBJECT poly
-name "Window"
+name "ExtWindow5"
 loc 0.0619392 -3.99618 0.000329971
 texture "Liveries/436th.png"
 crease 45.000000

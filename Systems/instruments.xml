@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+
+<system name="instruments">
+
+	<channel name="approach-speed">
+
+		<fcs_function>
+			<function>
+				<sum>
+					<quotient>
+						<property>inertia/weight-lbs</property>
+						<value>1000</value>
+					</quotient>
+					<value>110</value>
+				</sum>
+			</function>
+			<output>/velocities/approach-speed-kt</output>
+		</fcs_function>
+
+	</channel>
+
+	<channel name="target-kias">
+
+		<fcs_function>
+			<product>
+				<value>661.4786</value>
+				<pow>
+					<product>
+						<value>5</value>
+						<difference>
+							<pow>
+								<sum>
+									<value>1</value>
+									<difference>	
+										<product>
+											<pow>
+												<difference>
+													<value>1</value>
+													<product>
+														<value>6.8755856e-6</value>
+														<property>/instrumentation/altimeter/pressure-alt-ft</property>
+													</product>
+												</difference>
+												<value>5.2558797</value>
+											</pow>
+											<pow>	
+												<sum>
+													<value>1</value>
+													<quotient>
+														<product>
+															<property>/autopilot/settings/target-mach</property>
+															<property>/autopilot/settings/target-mach</property>
+														</product>
+														<value>5</value>
+													</quotient>
+												</sum>
+												<value>3.5</value>
+											</pow>
+										</product>
+										<value>1</value>
+									</difference>
+								</sum>
+								<quotient>
+									<value>2</value>
+									<value>7</value>
+								</quotient>
+							</pow>
+							<value>1</value>
+						</difference>
+					</product>
+					<value>0.5</value>
+				</pow>
+			</product>
+			<output>/autopilot/settings/target-mach-kias</output>
+		</fcs_function>
+
+	</channel>
+
+	<channel name="reference-speed">
+
+     <switch>
+          <default value="0"/>
+          <test value="/velocities/approach-speed-kt">
+                gear/gear-pos-norm EQ 1
+          </test>
+          <test value="/autopilot/settings/target-mach-kias">
+                gear/gear-pos-norm LT 1
+          </test>
+          <output>/velocities/reference-airspeed-kt</output>
+     </switch>
+
+	</channel>
+
+</system>
