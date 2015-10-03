@@ -135,7 +135,7 @@
 		</pointmass>
 
 		<pointmass name="payload"> 
-			<weight unit="LBS"> 185000 </weight> 
+			<weight unit="LBS">0</weight> 
 			<location name="POINTMASS" unit="IN"> 
 				<x> 1349.70 </x> 
 				<y>   0.00000 </y> 
@@ -558,6 +558,8 @@
 		</tank>
 
 	</propulsion>
+
+	<system file="TriCycle_PushbackJSBSIM"/>
 
 	<flight_control name="FCS: C-5">
 
@@ -1167,5 +1169,20 @@
 		</axis>
 
 	</aerodynamics>
+
+	<external_reactions>
+		<force name="pushback" frame="BODY">
+			<location unit="IN">
+				<x> 504.48 </x>
+				<y>   0.00 </y>
+				<z> -213.84 </z>
+			</location>
+			<direction>
+				<x>1</x>
+				<y>0</y>
+				<z>0</z>
+			</direction>
+		</force>
+	</external_reactions>
 
 </fdm_config>

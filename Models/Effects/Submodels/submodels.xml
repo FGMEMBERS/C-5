@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+
+    ###################################################################################
+    Antonov-Aircrafts and SpaceShuttle :: Herbert Wagner November2014-March2015
+    Development is ongoing, see latest version: www.github.com/HerbyW
+    This file is licenced under the terms of the GNU General Public Licence V3 or later
+    
+    Firefly: 3D model improvment: ruder, speedbreak, ailerions, all gears and doors
+    Eagel: Liveries
+    ###################################################################################
+-->
+
+<PropertyList>
+
+	<submodel> 
+		<name>parachutist</name>
+		<model>Aircraft/C-5/Models/Effects/Submodels/parachuter.xml</model>
+    
+		<trigger>controls/paratroopers/trigger/state</trigger>
+		<speed> 0 </speed>
+		<repeat> true </repeat>
+		<delay> 0 </delay>
+		<count>0</count>
+		<x-offset> -5 </x-offset>
+		<y-offset>  0 </y-offset>
+		<z-offset> -6.5 </z-offset>
+		<yaw-offset> 0 </yaw-offset>
+		<pitch-offset> 0 </pitch-offset>
+		<cd> 5 </cd>
+		<eda> 100 </eda>
+		<weight> 120 </weight>
+		<wind> true </wind>
+		<buoyancy> -150 </buoyancy>
+		<life> 120 </life>
+		<randomness>1.0</randomness>
+	</submodel>
+
+</PropertyList>
