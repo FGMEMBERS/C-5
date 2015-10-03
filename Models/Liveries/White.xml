@@ -6,7 +6,7 @@
     <model>
       <livery>
         <name type="string">White</name>
-        <texture>Liveries/white.png</texture>
+        <texture>Liveries/White.png</texture>
 		<texture-gear>LandingGear.png</texture-gear>
 		<texture-cargobay>Cargobay.png</texture-cargobay>
 <!--
