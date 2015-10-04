@@ -5,7 +5,7 @@ kids 25
 OBJECT poly
 name "Window1"
 loc 7.0094 -0.212937 -0.0464
-texture "Liveries/Cockpit.png"
+texture "Cockpit.png"
 crease 45.000000
 numvert 14
 -7.8078 0.0899678 1.19938
@@ -26,7 +26,7 @@ kids 0
 OBJECT poly
 name "Window2"
 loc -0.0739999 -0.00181798 -0.0928081
-texture "Liveries/Cockpit.png"
+texture "Cockpit.png"
 crease 45.000000
 numvert 29
 -1.42855 -0.277485 0.052693
@@ -126,7 +126,7 @@ kids 0
 OBJECT poly
 name "Window3"
 loc 30.6208 -1.35472 -4.8936
-texture "Liveries/Cockpit.png"
+texture "Cockpit.png"
 crease 45.000000
 numvert 64
 -30.7622 1.20527 3.15982
@@ -424,7 +424,7 @@ kids 0
 OBJECT poly
 name "Window4"
 loc 31.2785 1.32751 -0.092808
-texture "Liveries/Cockpit.png"
+texture "Cockpit.png"
 crease 45.000000
 numvert 24
 -32.5661 -1.54174 -0.378614
@@ -548,7 +548,7 @@ kids 0
 OBJECT poly
 name "Window5"
 loc 31.2785 1.32751 -0.092808
-texture "Liveries/Cockpit.png"
+texture "Cockpit.png"
 crease 45.000000
 numvert 24
 -31.9767 -1.04696 0.593881
@@ -667,7 +667,7 @@ kids 0
 OBJECT poly
 name "Window6"
 loc 0.1982 -0.0746975 -0.0546615
-texture "Liveries/Cockpit.png"
+texture "Cockpit.png"
 crease 45.000000
 numvert 50
 0.279486 -0.297534 -1.98621
@@ -864,7 +864,7 @@ kids 0
 OBJECT poly
 name "Panel.Main"
 loc -0.933 -0.507677 -0.0779251
-texture "Liveries/Cockpit.png"
+texture "Cockpit.png"
 crease 45.000000
 numvert 20
 -0.0664253 0.287721 0.000102162
@@ -942,7 +942,7 @@ kids 0
 OBJECT poly
 name "Console.Throttle"
 loc -0.6803 -0.910787 -0.100878
-texture "Liveries/Cockpit.png"
+texture "Cockpit.png"
 crease 45.000000
 numvert 24
 0.176651 -0.0519505 -0.456255
@@ -1165,7 +1165,7 @@ kids 0
 OBJECT poly
 name "Footbox1"
 loc -1.1081 -1.05577 0.847195
-texture "Liveries/Cockpit.png"
+texture "Cockpit.png"
 crease 45.000000
 numvert 8
 -0.242805 -0.24617 -0.49217
@@ -1209,7 +1209,7 @@ kids 0
 OBJECT poly
 name "Footbox2"
 loc -1.1081 -1.05481 -1.02423
-texture "Liveries/Cockpit.png"
+texture "Cockpit.png"
 crease 45.000000
 numvert 8
 -0.242805 0.0121865 -0.246842
@@ -1253,7 +1253,7 @@ kids 0
 OBJECT poly
 name "Console.Center"
 loc -0.189 -1.15757 -0.101042
-texture "Liveries/Cockpit.png"
+texture "Cockpit.png"
 crease 45.000000
 numvert 8
 -0.676825 0.144474 -0.455972
@@ -1304,7 +1304,7 @@ kids 0
 OBJECT poly
 name "Dashboard"
 loc -1.2711 -0.431187 -0.0713409
-texture "Liveries/Cockpit.png"
+texture "Cockpit.png"
 crease 45.000000
 numvert 64
 0.254307 0.207204 -0.484162
@@ -1658,7 +1658,7 @@ kids 12
 OBJECT poly
 name "Pseat"
 loc 7.58119 0.0245906 -0.307631
-texture "Liveries/fd1.png"
+texture "fd1.png"
 crease 45.000000
 numvert 244
 0.818604 0.0187271 0.956272
@@ -3312,7 +3312,7 @@ kids 0
 OBJECT poly
 name "cylinder"
 loc 8.67472 -0.132379 -1.17424
-texture "Liveries/fd1.png"
+texture "fd1.png"
 crease 45.000000
 numvert 49
 0.210819 -0.183491 0
@@ -3689,7 +3689,7 @@ kids 0
 OBJECT poly
 name "cylinder"
 loc 8.10039 -0.138459 0.92447
-texture "Liveries/fd1.png"
+texture "fd1.png"
 crease 45.000000
 numvert 49
 0 0.092685 0
@@ -4066,7 +4066,7 @@ kids 0
 OBJECT poly
 name "Pseat.armrest"
 loc 7.58119 0.0245906 -0.307631
-texture "Liveries/fd1.png"
+texture "fd1.png"
 crease 45.000000
 numvert 60
 0.23505 0.667678 0.836204
@@ -4606,7 +4606,7 @@ kids 0
 OBJECT poly
 name "Pseat.armrest"
 loc 9.19392 0.0306705 0.0578612
-texture "Liveries/fd1.png"
+texture "fd1.png"
 crease 45.000000
 numvert 60
 -0.838596 0.667678 -0.836204
@@ -5146,7 +5146,7 @@ kids 0
 OBJECT poly
 name "Cseat"
 loc 7.69296 0.250601 -0.214825
-texture "Liveries/fd1.png"
+texture "fd1.png"
 crease 45.000000
 numvert 258
 0.21357 -0.209149 0.287053
@@ -6870,7 +6870,7 @@ kids 0
 OBJECT poly
 name "Cseat.armrest"
 loc 8.86276 0.0227305 0.349901
-texture "Liveries/fd1.png"
+texture "fd1.png"
 crease 45.000000
 numvert 60
 -0.836205 0.667678 -0.86123
@@ -7410,7 +7410,7 @@ kids 0
 OBJECT poly
 name "Cseat"
 loc 6.44426 0.0159606 -0.582926
-texture "Liveries/fd1.png"
+texture "fd1.png"
 crease 45.000000
 numvert 258
 0.213566 0.0187271 -0.277673
@@ -9134,7 +9134,7 @@ kids 0
 OBJECT poly
 name "Cseat.armrest"
 loc 6.44426 0.0159606 -0.582926
-texture "Liveries/fd1.png"
+texture "fd1.png"
 crease 45.000000
 numvert 60
 0.0913181 0.541013 -0.86123
@@ -9674,7 +9674,7 @@ kids 0
 OBJECT poly
 name "Pseat"
 loc 6.44426 0.0159606 0.232827
-texture "Liveries/fd1.png"
+texture "fd1.png"
 crease 45.000000
 numvert 258
 0.213566 0.0187271 0.818604
@@ -11398,7 +11398,7 @@ kids 0
 OBJECT poly
 name "Pseat.armrest"
 loc 6.44426 0.0159606 0.232827
-texture "Liveries/fd1.png"
+texture "fd1.png"
 crease 45.000000
 numvert 60
 0.0913181 0.541013 0.235047
@@ -11938,7 +11938,7 @@ kids 0
 OBJECT poly
 name "Pseat"
 loc 9.19392 0.0306705 0.0578612
-texture "Liveries/fd1.png"
+texture "fd1.png"
 crease 45.000000
 numvert 244
 -0.771351 -0.028496 -0.93557
@@ -13592,7 +13592,7 @@ kids 0
 OBJECT poly
 name "Console.Pilot"
 loc -0.0407696 -0.947471 1.37774
-texture "Liveries/Cockpit.png"
+texture "Cockpit.png"
 crease 45.000000
 numvert 16
 -0.823738 -0.353811 -0.169639
@@ -13714,7 +13714,7 @@ kids 0
 OBJECT poly
 name "Console.CoPilot"
 loc -0.0407696 -0.947471 1.37774
-texture "Liveries/Cockpit.png"
+texture "Cockpit.png"
 crease 45.000000
 numvert 16
 0.222769 -0.0579355 -2.90032
@@ -13836,7 +13836,7 @@ kids 0
 OBJECT poly
 name "Floor"
 loc 0 -1.29917 -0.0410359
-texture "Liveries/Cockpit.png"
+texture "Cockpit.png"
 crease 45.000000
 numvert 34
 3.04234 -9.17912e-006 0.872088
@@ -14012,7 +14012,7 @@ kids 0
 OBJECT poly
 name "Door.Cockpit"
 loc 3.29452 -0.355673 0
-texture "Liveries/Cockpit.png"
+texture "Cockpit.png"
 crease 45.000000
 numvert 4
 -0.0364165 1.06702 0.567383
@@ -14031,7 +14031,7 @@ kids 0
 OBJECT poly
 name "Bulkhead.Cockpit"
 loc 10.6962 -0.205667 -0.0465636
-texture "Liveries/Cockpit.png"
+texture "Cockpit.png"
 crease 45.000000
 numvert 13
 -7.4381 1.4587 0.679074
@@ -14494,7 +14494,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Console.OverHead"
-texture "Liveries/Cockpit.png"
+texture "Cockpit.png"
 crease 45.000000
 numvert 81
 -0.534996 0.263925 0
@@ -15856,7 +15856,7 @@ kids 0
 OBJECT poly
 name "Cockpit Shell"
 loc 7.0094 -0.212937 -0.0464
-texture "Liveries/Cockpit.png"
+texture "Cockpit.png"
 crease 45.000000
 numvert 1026
 -3.89667 -0.929562 -2.45691
@@ -24766,7 +24766,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Console.FE"
-texture "Liveries/Cockpit.png"
+texture "Cockpit.png"
 crease 45.000000
 numvert 56
 3.01227 -1.29164 -2.58156
@@ -25041,7 +25041,7 @@ kids 0
 OBJECT poly
 name "Console.Nav"
 loc 1.63629 0.106743 1.62581
-texture "Liveries/Cockpit.png"
+texture "Cockpit.png"
 crease 45.000000
 numvert 66
 -0.594993 -0.550033 -0.224368
@@ -25426,7 +25426,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Bulkhead.Nav"
-texture "Liveries/Cockpit.png"
+texture "Cockpit.png"
 crease 45.000000
 numvert 6
 2.24226 -1.29164 2.55706

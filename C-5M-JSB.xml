@@ -442,6 +442,7 @@
 				<y> -894.45 </y>
 				<z>  102.13 </z>
 			</location>
+			<priority>2</priority>
 			<capacity unit="LBS"> 30119.27 </capacity>
 			<contents unit="LBS"> 15000 </contents>
 			<type> JP-8 </type>
@@ -453,6 +454,7 @@
 				<y> -544.72 </y>
 				<z>  142.37 </z>
 			</location>
+			<priority>2</priority>
 			<capacity unit="LBS"> 24461.86 </capacity>
 			<contents unit="LBS"> 12000 </contents>
 			<type> JP-8 </type>
@@ -464,6 +466,7 @@
 				<y> -300.21 </y>
 				<z>  164.03 </z>
 			</location>
+			<priority>3</priority>
 			<capacity unit="LBS"> 43521.73 </capacity>
 			<contents unit="LBS"> 22000 </contents>
 			<type> JP-8 </type>
@@ -475,6 +478,7 @@
 				<y> -526.15 </y>
 				<z>  142.37 </z>
 			</location>
+			<priority>1</priority>
 			<capacity unit="LBS"> 15566.64 </capacity>
 			<contents unit="LBS"> 8000 </contents>
 			<type> JP-8 </type>
@@ -486,6 +490,7 @@
 				<y> -287.83 </y>
 				<z>  164.03 </z>
 			</location>
+			<priority>1</priority>
 			<capacity unit="LBS"> 26024.97 </capacity>
 			<contents unit="LBS"> 13000 </contents>
 			<type> JP-8 </type>
@@ -497,6 +502,7 @@
 				<y>  287.33 </y>
 				<z>  164.03 </z>
 			</location>
+			<priority>1</priority>
 			<capacity unit="LBS"> 26024.97 </capacity>
 			<contents unit="LBS"> 13000 </contents>
 			<type> JP-8 </type>
@@ -508,6 +514,7 @@
 				<y>  526.15 </y>
 				<z>  142.37 </z>
 			</location>
+			<priority>1</priority>
 			<capacity unit="LBS"> 15566.64 </capacity>
 			<contents unit="LBS"> 8000 </contents>
 			<type> JP-8 </type>
@@ -519,6 +526,7 @@
 				<y>  300.21 </y>
 				<z>  164.03 </z>
 			</location>
+			<priority>3</priority>
 			<capacity unit="LBS"> 43521.73 </capacity>
 			<contents unit="LBS"> 22000 </contents>
 			<type> JP-8 </type>
@@ -530,6 +538,7 @@
 				<y>  544.72 </y>
 				<z>  142.37 </z>
 			</location>
+			<priority>2</priority>
 			<capacity unit="LBS"> 24461.86 </capacity>
 			<contents unit="LBS"> 12000 </contents>
 			<type> JP-8 </type>
@@ -541,6 +550,7 @@
 				<y>  894.45 </y>
 				<z>  102.13 </z>
 			</location>
+			<priority>2</priority>
 			<capacity unit="LBS"> 30119.27 </capacity>
 			<contents unit="LBS"> 15000 </contents>
 			<type> JP-8 </type>
@@ -552,6 +562,7 @@
 				<y> 1157.53 </y>
 				<z>   64.99 </z>
 			</location>
+			<priority>3</priority>
 			<capacity unit="LBS"> 26566.75 </capacity>
 			<contents unit="LBS"> 13000 </contents>
 			<type> JP-8 </type>

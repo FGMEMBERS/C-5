@@ -33,7 +33,7 @@
 
 			<!-- JPack: push forces for Voodoomaster Pushback -->
 			<pushback>
-				<kp type="double">1200</kp>
+				<kp type="double">4000</kp>
 				<ki type="double">0</ki>
 				<kd type="double">0</kd>
 				<position-norm type="double">0</position-norm>
@@ -57,6 +57,15 @@
 		<freeze>
 			<fuel>false</fuel>	<!-- false is default -->
 		</freeze>
+
+		<gui>
+			<dialogs>
+				<autopilot>
+					<kts-select tpye="bool">true</kts-select>
+					<mach-select tpye="bool">false</mach-select>
+				</autopilot>
+			</dialogs>
+		</gui>
 
 		<fuel-fraction>0.8</fuel-fraction>
 
@@ -152,7 +161,7 @@
 			<type>lookfrom</type>
 			<internal type="bool">true</internal>
 			<config>
-				<x-offset-m type="double">-1</x-offset-m>			<!-- Negative Moves view Left -->
+				<x-offset-m type="double">-1</x-offset-m>		<!-- Negative Moves view Left -->
 				<y-offset-m type="double"> 3.25</y-offset-m>		<!-- Positive Moves view Up -->
 				<z-offset-m type="double">-30.5</z-offset-m>		<!-- Negative Moves view Forward -->
 				<pitch-offset-deg>0</pitch-offset-deg>
@@ -291,9 +300,18 @@
 						</binding>
 					</item>
 				</menu>
-				<menu n="10">				
+				<menu n="100">				
 					<label>C-5 Galaxy</label>
 					<enabled type="bool">true</enabled>
+
+					<item>
+						<label>Autostart</label>
+						<binding>
+							<command>property-toggle</command>
+							<property>sim/model/start-idling</property>
+						</binding>
+					</item>
+
 					<item>
 						<label>Loadmaster</label>
 						<binding>
@@ -304,6 +322,7 @@
 							</script>
 						</binding>
 					</item>
+
 					<item>
 						<label>Select Livery</label>
 						<binding>
@@ -560,21 +579,6 @@
 	
 	<engines>
 		<engine n="0">
-			<running>true</running>
-		</engine>
-		<engine n="1">
-			<running>true</running>
-		</engine>
-		<engine n="2">
-			<running>true</running>
-		</engine>
-		<engine n="3">
-			<running>true</running>
-		</engine>
-	</engines>
-	
-	<engines>
-		<engine n="0">
 			<reverser-position type="double">0.000000</reverser-position>
 		</engine>     
 		<engine n="1">
@@ -589,12 +593,34 @@
 	</engines>
 	
 	<controls>
+	
+		<engines>
+			<engine n="0">
+				<rpm>0</rpm>
+				<running>false</running>
+			</engine>
+			<engine n="1">
+				<rpm>0</rpm>
+				<running>false</running>
+			</engine>
+			<engine n="2">
+				<rpm>0</rpm>
+				<running>false</running>
+			</engine>
+			<engine n="3">
+				<rpm>0</rpm>
+				<running>false</running>
+			</engine>
+		</engines>
+
 		<paratroopers>
 			<paratroopers type="int">0</paratroopers>
 		</paratroopers>
+
 		<gear>
 			<brake-parking>1</brake-parking>
 		</gear>
+
 	</controls>
 			
 	<fdm>
@@ -673,6 +699,7 @@
 		
 	<nasal>
 		<C-5>
+			<file>Aircraft/C-5/Nasal/C-5.nas</file>
 			<file>Aircraft/C-5/Nasal/limits.nas</file>
 			<file>Aircraft/C-5/Nasal/liveries.nas</file>
 		</C-5>
