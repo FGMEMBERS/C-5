@@ -431,6 +431,7 @@
 				<y> -1157.53 </y>
 				<z>    64.99 </z>
 			</location>
+			<priority>3</priority>
 			<capacity unit="LBS"> 26556.75 </capacity>
 			<contents unit="LBS"> 13000 </contents>
 			<type> JP-8 </type>

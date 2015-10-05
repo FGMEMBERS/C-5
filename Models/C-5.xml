@@ -63,11 +63,14 @@
 			var self=cmdarg();
 
 			var cargodoorfrontMP=self.getNode("sim/multiplay/generic/float[0]", 1);
+print("cargodoorfrontMP="~cargodoorfrontMP);
 			var cargodoorfront=self.getNode("instrumentation/doors/cargodoorfront/position-norm");
+print("cargodoorfront="~cargodoorfront);
 			cargodoorfront.alias(cargodoorfrontMP);
 		</load>
 		<unload>
 			livery_update.stop();
+			cargodoorfront.unalias();
 		</unload>
 	</nasal>
 
