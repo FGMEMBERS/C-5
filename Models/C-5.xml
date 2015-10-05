@@ -59,6 +59,12 @@
 	<nasal>
 		<load>
 			var livery_update = aircraft.livery_update.new("Aircraft/C-5/Models/Liveries", 10);
+
+			var self=cmdarg();
+
+			var cargodoorfrontMP=self.getNode("sim/multiplay/generic/float[0]", 1);
+			var cargodoorfront=self.getNode("instrumentation/doors/cargodoorfront");
+			cargodoorfront.alias(cargodoorfrontMP);
 		</load>
 		<unload>
 			livery_update.stop();
