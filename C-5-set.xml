@@ -433,8 +433,29 @@
 				</binding>
 			</key>
  
-			<key n="61"> 
-				<name>=</name>
+			<key n="66">
+				<name>B</name>
+				<desc>Toggle parking brake on or off</desc>
+				<binding>
+					<command>nasal</command>
+					<script>
+						controls.applyParkingBrake(1);
+					</script>
+				</binding>
+				<mod-up>
+					<binding>
+						<command>nasal</command>
+						<script>
+							controls.applyParkingBrake(0);
+							setprop("controls/gear/brake-left", 0);
+							setprop("controls/gear/brake-right", 0);
+						</script>
+					</binding>
+				</mod-up>
+			</key>
+
+			<key n="74"> 
+				<name>Shift-J</name>
 				<desc>Jump signal</desc>
 				<binding>
 					<command>property-toggle</command>

@@ -2694,6 +2694,129 @@
 			<z-m>-10.50</z-m>
 		</offsets>
 	</model>
-			
+
+	<!-- Tyresmoke -->
+	<model>
+		<path>Aircraft/Generic/Effects/tyre-smoke-nose.xml</path>
+		<name>tyre-smoke-n</name>
+		<offsets>
+			<x-m>-4.669</x-m>
+			<y-m>0</y-m>
+			<z-m>-2.484</z-m>
+		</offsets>
+	</model>
+ 
+	<model>
+		<path>Aircraft/Generic/Effects/tyre-smoke-port.xml</path>
+		<name>tyre-smoke-p</name>
+		<offsets>
+			<x-m>7.962</x-m>
+			<y-m>-2.634</y-m>
+			<z-m>-2.784</z-m>
+		</offsets>
+	</model>
+ 
+	<model>
+		<path>Aircraft/Generic/Effects/tyre-smoke-stbd.xml</path>
+		<name>tyre-smoke-s</name>
+		<offsets>
+			<x-m>7.962</x-m>
+			<y-m>2.634</y-m>
+			<z-m>-2.784</z-m>
+		</offsets>
+	</model>
+
+	<!-- Contrails -->
+	<model>
+		<path>Aircraft/C-5/Models/Effects/contrail.xml</path>
+		<name>contrails.left</name>     
+		<offsets>
+			<x-m> 31.3057</x-m>
+			<y-m>-20.8057</y-m>
+			<z-m> -1.36293</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<path>Aircraft/C-5/Models/Effects/contrail.xml</path>	
+		<name>contrails.right</name>     
+		<offsets>
+			<x-m> 22.6645</x-m>
+			<y-m> -12.1412</y-m>
+			<z-m> -2.54287</z-m>
+		</offsets>
+	</model>
+	<model>
+		<path>Aircraft/C-5/Models/Effects/contrail.xml</path>
+		<name>contrails.left</name>     
+		<offsets>
+			<x-m> 31.3057</x-m>
+			<y-m> 20.8057</y-m>
+			<z-m> -1.36293</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<path>Aircraft/C-5/Models/Effects/contrail.xml</path>	
+		<name>contrails.right</name>     
+		<offsets>
+			<x-m> 22.6645</x-m>
+			<y-m>  12.1412</y-m>
+			<z-m> -2.54287</z-m>
+		</offsets>
+	</model>
+
+	<!-- Wing Tip Trails -->
+	<model>
+		<path>Aircraft/C-5/Models/Effects/wingtip-trails.xml</path>
+		<name>wingtiptrails.left</name>     
+		<offsets>
+			<x-m>1.81</x-m>
+			<y-m>-33.42</y-m>
+			<z-m>-2.76</z-m>  
+		</offsets>
+	</model>
+
+	<model>
+		<path>Aircraft/C-5/Models/Effects/wingtip-trails.xml</path>
+		<name>wingtiptrails.right</name>     
+		<offsets>
+			<x-m>1.81</x-m>
+			<y-m>33.42</y-m>
+			<z-m>-2.76</z-m>     
+		</offsets>
+	</model>
+
+	<!-- Wet Runway Moisture -->
+	<!-- model>
+		<path>Aircraft/C-5/Models/Effects/wet-runway-nose.xml</path>
+		<name>wet-runway-nose</name>     
+		<offsets>
+			<x-m>-12.77</x-m>
+			<y-m>0</y-m>
+			<z-m>-2.39</z-m>      
+		</offsets>
+	</model>
+
+	<model>
+		<path>Aircraft/C-5/Models/Effects/wet-runway.xml</path>
+		<name>wet-runway-left</name>     
+		<offsets>
+			<x-m>-1.07</x-m>
+			<y-m>-2.55</y-m>
+			<z-m>-2.5</z-m>      
+		</offsets>
+	</model>
+
+	<model>
+		<path>Aircraft/C-5/Models/Effects/wet-runway.xml</path>
+		<name>wet-runway-right</name>     
+		<offsets>
+			<x-m>-1.07</x-m>
+			<y-m>2.55</y-m>
+			<z-m>-2.5</z-m>      
+		</offsets>
+	</model -->
+
 </PropertyList>
 
