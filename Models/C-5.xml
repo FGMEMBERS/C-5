@@ -63,7 +63,7 @@
 			var self=cmdarg();
 
 			var cargodoorfrontMP=self.getNode("sim/multiplay/generic/float[0]", 1);
-			var cargodoorfront=self.getNode("instrumentation/doors/cargodoorfront");
+			var cargodoorfront=self.getNode("instrumentation/doors/cargodoorfront/position-norm");
 			cargodoorfront.alias(cargodoorfrontMP);
 		</load>
 		<unload>
