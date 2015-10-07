@@ -723,6 +723,7 @@
 			<file>Aircraft/C-5/Nasal/C-5.nas</file>
 			<file>Aircraft/C-5/Nasal/limits.nas</file>
 			<file>Aircraft/C-5/Nasal/liveries.nas</file>
+			<file>Aircraft/C-5/Nasal/lights.nas</file>
 		</C-5>
 		<tyresmoke>
 			<file>Aircraft/C-5/Nasal/tyresmoke.nas</file>

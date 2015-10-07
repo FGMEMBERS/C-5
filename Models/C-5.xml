@@ -62,9 +62,9 @@
 
 			var self=cmdarg();
 
-			var cargodoorfrontMP=self.getNode("sim/multiplay/generic/float[0]", 1);
+			var cargodoorfrontMP=self.getprop("sim/multiplay/generic/float[0]");
 print("cargodoorfrontMP="~cargodoorfrontMP);
-			var cargodoorfront=self.getNode("instrumentation/doors/cargodoorfront/position-norm");
+			var cargodoorfront=self.getprop("instrumentation/doors/cargodoorfront/position-norm");
 print("cargodoorfront="~cargodoorfront);
 			cargodoorfront.alias(cargodoorfrontMP);
 		</load>
@@ -2826,6 +2826,251 @@ print("cargodoorfront="~cargodoorfront);
 			<z-m>-2.5</z-m>      
 		</offsets>
 	</model -->
+
+	<!-- ###### -->
+	<!-- LIGHTS -->
+	<!-- ###### -->
+
+	<!-- LANDING LIGHTS WINGS -->
+
+	<model>
+		<path>Aircraft/C-5/Models/Lights/landinglights/landing_light_R.xml</path>
+		<name>LandingLight.Outbd.Left</name>
+		<offsets>
+			<x-m>-13.7858</x-m>
+			<y-m>4.29819</y-m>
+			<z-m>-1.5088</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<path>Aircraft/C-5/Models/Lights/landinglights/landing_light_R.xml</path>
+		<name>LandingLight.Outbd.Left</name>
+		<offsets>
+			<x-m>-13.2158</x-m>
+			<y-m>4.79819</y-m>
+			<z-m>-1.5288</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<path>Aircraft/C-5/Models/Lights/landinglights/landing_light_L.xml</path>
+		<name>LandingLight.Outbd.Left</name>
+		<offsets>
+			<x-m>-13.7858</x-m>
+			<y-m>-4.29819</y-m>
+			<z-m>-1.5088</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<path>Aircraft/C-5/Models/Lights/landinglights/landing_light_L.xml</path>
+		<name>LandingLight.Outbd.Left</name>
+		<offsets>
+			<x-m>-13.2158</x-m>
+			<y-m>-4.79819</y-m>
+			<z-m>-1.5288</z-m>
+		</offsets>
+	</model>
+
+	<!-- LANDING LIGHTS NOSE -->
+
+	<model>
+		<path>Aircraft/C-5/Models/Lights/landinglights/noselanding.xml</path>
+		<name>LandingLight.Nose</name>
+		<offsets>
+		  <x-m>-25.8675</x-m>
+		  <y-m>  0.00</y-m>
+		  <z-m>-9.00893</z-m>
+		</offsets>
+	</model>
+
+	<!-- ANTI-COLLISION LIGHTS -->
+
+	<model>
+		<path>Aircraft/C-5/Models/Lights/beacon/beacon.xml</path>
+		<name>Beacon.Upper</name>
+		<offsets>
+			<x-m>-9.314</x-m>
+			<y-m>0</y-m>
+			<z-m>0.258</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<path>Aircraft/C-5/Models/Lights/beacon/beacon.xml</path>
+		<name>Beacon.Lower</name>
+		<offsets>
+			<x-m>-9.314</x-m>
+v			<y-m>0</y-m>
+			<z-m>-8.908</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<path>Aircraft/C-5/Models/Lights/bluelight/blueflash.xml</path>
+		<name>Light.Tail</name>
+		<offsets>
+			<x-m>32.314</x-m>
+			<y-m>0</y-m>
+			<z-m>10.288</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<path>Aircraft/C-5/Models/Lights/strobewhite/strobe.xml</path>
+		<name>StrobeLight.Tail</name>
+		<offsets>
+			<x-m>32.314</x-m>
+			<y-m>0</y-m>
+			<z-m>10.288</z-m>
+		</offsets>
+	</model>
+
+	<!-- TAIL LOGO LIGHTS -->
+
+	<model>
+		<path>Aircraft/C-5/Models/Lights/strobewhite/logo-lights.xml</path>
+		<name>light.logo1</name>
+		<offsets>
+			<x-m>35.314</x-m>
+			<y-m> 8.72</y-m>
+			<z-m>8.788</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<path>Aircraft/C-5/Models/Lights/strobewhite/logo-lights.xml</path>
+		<name>light.logo2</name>
+		<offsets>
+			<x-m>35.314</x-m>
+			<y-m>-8.72</y-m>
+			<z-m>8.788</z-m>
+		</offsets>
+	</model>
+
+	<animation> 
+		<type>select</type> 
+		<object-name>light.logo1</object-name>
+		<object-name>light.logo2</object-name>
+		<condition>
+			<property>/controls/lighting/logo-lights</property> 
+		</condition>
+	</animation> 
+
+	<!-- Wing Lights -->
+
+	<!-- model>
+		<path>Aircraft/C-5/Models/Lights/winglights.xml</path>
+		<name>Wing.LightsL</name>
+		<offsets>
+			<x-m>-10.0</x-m>
+			<y-m>-3.28</y-m>
+			<z-m>-0.26</z-m>
+		</offsets>
+	</model -->
+
+	<!-- model>
+		<path>Aircraft/C-5/Models/Lights/winglights.xml</path>
+		<name>Wing.LightsR</name>
+		<offsets>
+			<x-m>-10.0</x-m>
+			<y-m>3.28</y-m>
+			<z-m>-0.26</z-m>
+		</offsets>
+	</model -->
+
+	<!-- animation>
+		<type>select</type>
+		<object-name>e1f.lt</object-name>
+		<object-name>e1r.lt</object-name>
+		<object-name>e2f.lt</object-name>
+		<object-name>e2r.lt</object-name>
+		<object-name>e3f.lt</object-name>
+		<object-name>e3r.lt</object-name>
+		<object-name>e4f.lt</object-name>
+		<object-name>e4r.lt</object-name>
+		<object-name>pylon.lt.in</object-name>
+		<object-name>pylon.lt.out</object-name>
+		<object-name>wing.lt.out</object-name>
+		<condition>
+			<property>/controls/lighting/wing-lights</property>
+		</condition>
+	</animation -->
+
+	<!-- NAVIGATION LIGHTS -->
+
+	<model>
+		<path>Aircraft/C-5/Models/Lights/rednav/redflash.xml</path>
+		<name>NavLight.Left</name>
+		<offsets>
+			<x-m>5.633</x-m>
+			<y-m>-33.6753</y-m>
+			<z-m>-4.0987</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<path>Aircraft/C-5/Models/Lights/rednav/rednav.xml</path>
+		<name>NavLight.Left2</name>
+		<offsets>
+			<x-m>5.633</x-m>
+			<y-m>-33.6753</y-m>
+			<z-m>-4.0987</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<path>Aircraft/C-5/Models/Lights/strobewhite/strobe.xml</path>
+		<name>Strobe.Left</name>
+		<offsets>
+			<x-m>5.633</x-m>
+			<y-m>-33.6753</y-m>
+			<z-m>-4.0987</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<path>Aircraft/C-5/Models/Lights/greennav/greenflash.xml</path>
+		<name>NavLight.Right</name>
+		<offsets>
+			<x-m>5.633</x-m>
+			<y-m>33.6753</y-m>
+			<z-m>-4.0987</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<path>Aircraft/C-5/Models/Lights/greennav/greennav.xml</path>
+		<name>NavLight.Right2</name>
+		<offsets>
+			<x-m>5.633</x-m>
+			<y-m>33.6753</y-m>
+			<z-m>-4.0987</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<path>Aircraft/C-5/Models/Lights/strobewhite/strobe.xml</path>
+		<name>Strobe.Right</name>
+		<offsets>
+			<x-m>5.633</x-m>
+			<y-m>33.6753</y-m>
+			<z-m>-4.0987</z-m>
+		</offsets>
+	</model>
+
+	<!-- LIGHT PROJECTION -->
+	<model>
+		<name>Projection</name>
+		<path>Aircraft/C-5/Models/Lights/projection/projection.xml</path>
+		<offsets>
+			<x-m>-0.10</x-m>
+			<y-m>0.0</y-m>
+			<z-m>-11</z-m>
+			<pitch-deg>1.0</pitch-deg>
+		</offsets>
+	</model>
 
 </PropertyList>
 
