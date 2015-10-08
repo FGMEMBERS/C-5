@@ -61,7 +61,7 @@
 		<gui>
 			<dialogs>
 				<autopilot>
-					<kts-select tpye="bool">true</kts-select>
+					<kts-select type="bool">true</kts-select>
 					<mach-select tpye="bool">false</mach-select>
 				</autopilot>
 			</dialogs>
@@ -309,6 +309,17 @@
 						<binding>
 							<command>property-toggle</command>
 							<property>sim/model/start-idling</property>
+						</binding>
+					</item>
+
+					<item>
+						<label>Lights</label>
+						<binding>
+							<command>nasal</command>
+							<script>
+								var lights = gui.Dialog.new("sim/gui/dialogs/lights/dialog", "Aircraft/C-5/Dialogs/lights.xml");
+								lights.open();
+							</script>
 						</binding>
 					</item>
 
