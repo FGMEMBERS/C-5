@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+	<name>lights</name>
+	<layout>vbox</layout>
+  
+	<!-- Header -->
+	<group>
+		<layout>hbox</layout>
+		<text>
+			<label>Lights</label>
+		</text>
+
+		<empty>
+			<stretch>true</stretch>
+		</empty>
+
+		<button>
+			<legend/>
+			<key>Esc</key>
+			<pref-width>16</pref-width>
+			<pref-height>16</pref-height>
+			<border>2</border>
+			<binding>
+				<command>dialog-close</command>
+			</binding>
+		</button>
+	</group>
+
+	<hrule/>
+
+	<group>
+		<layout>table</layout>
+		<checkbox>
+			<row>0</row>
+			<col>0</col>
+			<label>Landing Lights</label>
+			<halign>fill</halign>
+			<property>/controls/lighting/landing-lights</property>
+			<live>true</live>
+			<binding>
+				<command>dialog-apply</command>
+			</binding>
+		</checkbox>
+		<checkbox>
+			<row>1</row>
+			<col>0</col>
+			<label>Beacon</label>
+			<halign>fill</halign>
+			<property>/controls/lighting/beacon</property>
+			<live>true</live>
+			<binding>
+				<command>dialog-apply</command>
+			</binding>
+		</checkbox>
+		<checkbox>
+			<row>1</row>
+			<col>1</col>
+			<label>Nav lights</label>
+			<halign>fill</halign>
+			<property>/controls/lighting/nav-lights</property>
+			<live>true</live>
+			<binding>
+				<command>dialog-apply</command>
+			</binding>
+		</checkbox>
+		<checkbox>
+			<row>2</row>
+			<col>0</col>
+			<label>Strobe</label>
+			<halign>fill</halign>
+			<property>/controls/lighting/strobe</property>
+			<live>true</live>
+			<binding>
+				<command>dialog-apply</command>
+			</binding>
+		</checkbox>
+	</group>
+    
+</PropertyList> 
