@@ -26,6 +26,32 @@
 		<startup>
 			<splash-texture>Aircraft/C-5/splash.png</splash-texture>
 		</startup>
+
+		<flight-recorder>
+            <replay-config type="int">0</replay-config>
+            <config n="0">
+                <signals include="/Aircraft/Generic/flightrecorder/components/environment.xml"/>
+                <signals include="/Aircraft/Generic/flightrecorder/components/position.xml"/>
+                <signals include="/Aircraft/Generic/flightrecorder/components/controls.xml"/>
+                <signals include="/Aircraft/Generic/flightrecorder/components/surfaces.xml"/>
+                <signals include="/Aircraft/Generic/flightrecorder/components/engine-jet.xml">
+                    <count type="int">11</count>
+                </signals>
+                <signals include="/Aircraft/Generic/flightrecorder/components/tanks.xml">
+                    <count type="int">12</count>
+                </signals>
+                <signals include="Aircraft/Generic/flightrecorder/components/gear-retractable.xml">
+                    <count type="int">6</count>
+                </signals>
+                <signal>
+                    <type>float</type>
+                    <property type="string">engines/engine/thrust_lb</property>
+                </signal>
+
+			<name type="string">C-5</name>
+            </config>
+        </flight-recorder>	
+	
 	
 		<!-- Settings for model -->    
 		<model>
@@ -355,7 +381,8 @@
 				<path>Aircraft/JPack/Voodoomaster/Systems/SYS8_0_autopilot.xml</path>
 			</autopilot>
 		</systems>
-	
+
+
 	</sim>
     
   	<consumables>
