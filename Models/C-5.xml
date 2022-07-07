@@ -38,7 +38,9 @@
 		<path>Aircraft/C-5/Models/C-5_RearCabin.xml</path>
 	</model> -->	
   	
-	<!-- 3D Model Material Settings -->
+	<!-- 3D Model Material Settings
+	     This piece of code is disabled, since it is preventing launching
+	     for FG 2022.4. Launching fails silently with a segmentation fault
 	<animation> 
 		<type>material</type> 
 		<object-name></object-name>
@@ -54,6 +56,7 @@
 			<blue>0.93</blue>
 		</ambient>
 	</animation>
+	-->
 	
 	<!-- 	NASAL Code for Liveries 		-->	
 	<nasal>
